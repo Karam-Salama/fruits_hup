@@ -1,21 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_hup/modules/splash/views/splash_view.dart';
+import 'app/fruitHup_app.dart';
+import 'core/database/cache/cache_helper.dart';
+import 'core/service/service_locator.dart';
 
-import 'core/functions/onGenerate_routes.dart';
-
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  setUpServiceLocator();
+  await getIt<CacheHelper>().init();
   runApp(const FruitHup());
-}
-
-class FruitHup extends StatelessWidget {
-  const FruitHup({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      onGenerateRoute: onGenerateRoute,
-      initialRoute: SplashView.routeName,
-    );
-  }
 }
