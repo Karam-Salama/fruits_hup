@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:fruits_hup/core/utils/assets.dart';
 
 import '../../../core/utils/app_colors.dart';
 import '../../../core/utils/app_text_styles.dart';
@@ -22,42 +23,30 @@ class CustomSocialButtons extends StatelessWidget {
     return Column(
       children: [
         CustomButton(
-          icon: const Icon(
-            Icons.g_mobiledata_rounded,
-            color: AppColors.primaryColor,
-            size: 25,
-          ),
+          imageIcon: Assets.assetsIconsGoogleIcon,
           text: text1!,
-          backGroundColor: AppColors.backgroundColor,
-          borderColor: AppColors.primaryColor,
+          backGroundColor: AppColors.whiteColor,
+          borderColor: Color(0xFFDDDFDF),
           onPressed: () {},
           style: AppTextStyle.Cairo600style13.copyWith(fontSize: 16),
           mainAxisAlignment: MainAxisAlignment.start,
         ),
         const SizedBox(height: 16),
         CustomButton(
-          icon: const Icon(
-            Icons.apple_rounded,
-            color: AppColors.primaryColor,
-            size: 25,
-          ),
+          imageIcon: Assets.assetsIconsAppleIcon,
           text: text2!,
-          backGroundColor: AppColors.backgroundColor,
-          borderColor: AppColors.primaryColor,
+          backGroundColor: AppColors.whiteColor,
+          borderColor: Color(0xFFDDDFDF),
           onPressed: () {},
           style: AppTextStyle.Cairo600style13.copyWith(fontSize: 16),
           mainAxisAlignment: MainAxisAlignment.start,
         ),
         const SizedBox(height: 16),
         CustomButton(
-          icon: const Icon(
-            Icons.facebook_rounded,
-            color: AppColors.primaryColor,
-            size: 25,
-          ),
+          imageIcon: Assets.assetsIconsFacebookIcon,
           text: text3!,
-          backGroundColor: AppColors.backgroundColor,
-          borderColor: AppColors.primaryColor,
+          backGroundColor: AppColors.whiteColor,
+          borderColor: Color(0xFFDDDFDF),
           onPressed: () {},
           style: AppTextStyle.Cairo600style13.copyWith(fontSize: 16),
           mainAxisAlignment: MainAxisAlignment.start,

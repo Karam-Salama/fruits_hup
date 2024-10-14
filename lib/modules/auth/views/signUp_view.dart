@@ -35,7 +35,7 @@ class SignupView extends StatelessWidget {
                 textPart1: AppStrings.alreadyHaveAccount,
                 textPart2: AppStrings.login,
                 onPress: () {
-                  customReplacementNavigate(context, LoginView.routeName);
+                  customNavigate(context, LoginView.routeName);
                 }),
           ),
         ],

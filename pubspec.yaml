@@ -84,7 +84,7 @@ flutter:
 
 #==================================  Generate  Flutter  Assets  Section  ==============================
 flutter_assets:
-  assets_path: assets/
+  assets_path: assets/icons/
   output_path: lib/core/utils/
   filename: assets1.dart
 flutter_intl:

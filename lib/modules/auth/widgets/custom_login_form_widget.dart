@@ -40,7 +40,7 @@ class CustomLoginForm extends StatelessWidget {
         const SizedBox(height: 8),
         CustomHeaderText(
           onpress: () {
-            customReplacementNavigate(context, ForgetPasswordView.routeName);
+            customNavigate(context, ForgetPasswordView.routeName);
           },
           text1: AppStrings.forgotPassword,
           textAlign1: TextAlign.end,

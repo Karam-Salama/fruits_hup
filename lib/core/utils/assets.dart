@@ -59,4 +59,17 @@ class Assets {
   /// assets/images/onboarding_image_2.svg
   static const String assetsImagesOnboardingImage2 =
       "assets/images/onboarding_image_2.svg";
+
+  /// Assets for assetsIconsAppleIcon
+  /// assets/icons/Apple_Icon.svg
+  static const String assetsIconsAppleIcon = "assets/icons/Apple_Icon.svg";
+
+  /// Assets for assetsIconsFacebookIcon
+  /// assets/icons/Facebook_Icon.svg
+  static const String assetsIconsFacebookIcon =
+      "assets/icons/Facebook_Icon.svg";
+
+  /// Assets for assetsIconsGoogleIcon
+  /// assets/icons/Google_Icon.svg
+  static const String assetsIconsGoogleIcon = "assets/icons/Google_Icon.svg";
 }

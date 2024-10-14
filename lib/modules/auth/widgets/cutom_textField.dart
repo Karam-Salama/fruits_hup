@@ -33,7 +33,7 @@ class CustomTextFormField extends StatelessWidget {
       onFieldSubmitted: onFieldSubmitted,
       obscureText: obscureText!,
       keyboardType: keyboardType,
-      style: const TextStyle(color: AppColors.greyColor, fontSize: 12.0),
+      style: AppTextStyle.Cairo600style16.copyWith(color: AppColors.blackColor),
       decoration: InputDecoration(
         enabledBorder: getBorderStyle(),
         focusedBorder: getBorderStyle(),
@@ -51,9 +51,9 @@ class CustomTextFormField extends StatelessWidget {
 
 OutlineInputBorder getBorderStyle() {
   return OutlineInputBorder(
-    borderRadius: BorderRadius.circular(8),
+    borderRadius: BorderRadius.circular(4),
     borderSide: const BorderSide(
-      color: AppColors.greyColor,
+      color: Color(0xFFE6E9EA),
       width: 1.0,
     ),
   );

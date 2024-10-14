@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../utils/app_colors.dart';
 import '../utils/app_constants.dart';
@@ -14,14 +15,14 @@ class CustomButton extends StatelessWidget {
     required this.onPressed,
     required this.style,
     required this.mainAxisAlignment,
-    this.icon,
+    this.imageIcon,
   });
 
   final Color? backGroundColor;
   final Color? borderColor;
   final String? text;
   final VoidCallback? onPressed;
-  final Icon? icon;
+  final String? imageIcon;
   TextStyle? style;
   MainAxisAlignment mainAxisAlignment;
 
@@ -42,8 +43,8 @@ class CustomButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: mainAxisAlignment,
           children: [
-            if (icon != null) ...[
-              icon!,
+            if (imageIcon != null) ...[
+              SvgPicture.asset(imageIcon!),
               const SizedBox(width: 53),
             ],
             Text(

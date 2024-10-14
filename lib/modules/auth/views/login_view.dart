@@ -38,7 +38,7 @@ class LoginView extends StatelessWidget {
                 textPart1: AppStrings.dontHaveAccount,
                 textPart2: AppStrings.makeAnAccount,
                 onPress: () {
-                  customReplacementNavigate(context, SignupView.routeName);
+                  customNavigate(context, SignupView.routeName);
                 },
               ),
             ),
