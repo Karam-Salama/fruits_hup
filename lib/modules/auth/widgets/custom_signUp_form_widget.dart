@@ -6,7 +6,7 @@ import '../../../core/utils/app_strings.dart';
 import '../../../core/utils/app_text_styles.dart';
 import '../../../core/widgets/custom_btn.dart';
 import 'custom_terms_and_conds_widget.dart';
-import 'cutom_textField.dart';
+import 'cutom_text_form_field_widget_.dart';
 
 class CustomSignUpForm extends StatelessWidget {
   const CustomSignUpForm({super.key});
@@ -47,11 +47,10 @@ class CustomSignUpForm extends StatelessWidget {
           const SizedBox(height: 30),
           CustomButton(
             text: AppStrings.createAccount,
-            backGroundColor: AppColors.transparent,
-            borderColor: AppColors.primaryColor,
+            backGroundColor: Color(0xFFC9CECF),
             onPressed: () async {},
             style: AppTextStyle.Cairo700style16,
-          mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
           ),
         ],
       ),

@@ -24,7 +24,8 @@ class CustomOrDivider extends StatelessWidget {
           child: Text(
             text!,
             style: AppTextStyle.Cairo600style16.copyWith(
-                color: AppColors.blackColor),
+              color: AppColors.blackColor,
+            ),
           ),
         ),
         Expanded(

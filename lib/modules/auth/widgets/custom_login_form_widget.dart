@@ -8,7 +8,7 @@ import '../../../core/utils/app_strings.dart';
 import '../../../core/utils/app_text_styles.dart';
 import '../../../core/widgets/custom_btn.dart';
 import '../views/forget_password_view.dart';
-import 'cutom_textField.dart';
+import 'cutom_text_form_field_widget_.dart';
 
 class CustomLoginForm extends StatelessWidget {
   const CustomLoginForm({super.key});
@@ -32,7 +32,7 @@ class CustomLoginForm extends StatelessWidget {
           suffixIcon: IconButton(
             onPressed: () {},
             icon: Icon(
-              Icons.visibility_outlined,
+              Icons.remove_red_eye,
               color: AppColors.greyColor,
             ),
           ),
