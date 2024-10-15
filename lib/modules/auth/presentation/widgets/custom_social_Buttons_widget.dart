@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:fruits_hup/core/utils/assets.dart';
-import '../../../core/utils/app_text_styles.dart';
-import '../../../core/widgets/custom_btn.dart';
+import '../../../../core/utils/app_text_styles.dart';
+import '../../../../core/widgets/custom_btn.dart';
 
 class CustomSocialButtons extends StatelessWidget {
   CustomSocialButtons({

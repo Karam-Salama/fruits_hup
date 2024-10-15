@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/functions/validation.dart';
-import '../../../core/utils/app_colors.dart';
-import '../../../core/utils/app_strings.dart';
-import '../../../core/utils/app_text_styles.dart';
-import '../../../core/widgets/custom_btn.dart';
+import '../../../../core/functions/validation.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_strings.dart';
+import '../../../../core/utils/app_text_styles.dart';
+import '../../../../core/widgets/custom_btn.dart';
 import 'custom_terms_and_conds_widget.dart';
 import 'cutom_text_form_field_widget_.dart';
 

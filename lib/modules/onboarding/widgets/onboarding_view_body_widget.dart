@@ -4,7 +4,7 @@ import 'package:fruits_hup/core/utils/app_colors.dart';
 import 'package:fruits_hup/core/utils/app_strings.dart';
 import 'package:fruits_hup/core/utils/app_text_styles.dart';
 import 'package:fruits_hup/core/widgets/custom_btn.dart';
-import 'package:fruits_hup/modules/auth/views/signUp_view.dart';
+import 'package:fruits_hup/modules/auth/presentation/views/signUp_view.dart';
 
 import '../../../core/database/cache/cache_helper.dart';
 import '../../../core/functions/navigation.dart';

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_hup/modules/auth/views/login_view.dart';
+import 'package:fruits_hup/modules/auth/presentation/views/login_view.dart';
 import 'package:fruits_hup/modules/splash/views/splash_view.dart';
 
-import '../../modules/auth/views/forget_password_view.dart';
-import '../../modules/auth/views/password_recovery_view.dart';
-import '../../modules/auth/views/reset_your_password_view.dart';
-import '../../modules/auth/views/signUp_view.dart';
+import '../../modules/auth/presentation/views/forget_password_view.dart';
+import '../../modules/auth/presentation/views/password_recovery_view.dart';
+import '../../modules/auth/presentation/views/reset_your_password_view.dart';
+import '../../modules/auth/presentation/views/signUp_view.dart';
 import '../../modules/onboarding/views/onboarding_view.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {

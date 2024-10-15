@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_hup/modules/auth/views/login_view.dart';
-
-import '../../../core/functions/navigation.dart';
-import '../../../core/utils/app_strings.dart';
-import '../../../core/utils/app_text_styles.dart';
+import '../../../../core/utils/app_strings.dart';
+import '../../../../core/utils/app_text_styles.dart';
 import '../widgets/custom_have_account_widget.dart';
 import '../widgets/custom_signUp_form_widget.dart';
 

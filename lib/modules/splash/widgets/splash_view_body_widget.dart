@@ -5,7 +5,7 @@ import '../../../core/database/cache/cache_helper.dart';
 import '../../../core/functions/navigation.dart';
 import '../../../core/service/service_locator.dart';
 import '../../../core/utils/assets.dart';
-import '../../auth/views/login_view.dart';
+import '../../auth/presentation/views/login_view.dart';
 import '../../onboarding/views/onboarding_view.dart';
 
 class SplashViewBody extends StatefulWidget {
