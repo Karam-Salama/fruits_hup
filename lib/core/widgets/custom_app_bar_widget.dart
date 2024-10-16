@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../utils/app_text_styles.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -8,11 +7,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     required this.title,
     this.icon,
   });
+
   final String title;
   final Icon? icon;
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: false,
       centerTitle: true,
       backgroundColor: Colors.transparent,
       elevation: 0,
@@ -20,15 +22,17 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         title,
         style: AppTextStyle.Cairo700style23.copyWith(fontSize: 19),
       ),
-      leading: IconButton(
-        onPressed: () {
-          Navigator.pop(context);
-        },
-        icon: icon!,
-      ),
+      leading: icon != null
+          ? IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: icon!,
+            )
+          : null,
     );
   }
 
   @override
-  Size get preferredSize => throw UnimplementedError();
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
