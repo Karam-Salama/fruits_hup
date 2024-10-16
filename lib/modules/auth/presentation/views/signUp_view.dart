@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruits_hup/modules/auth/presentation/auth_cubits/Sign_Up_Cubit/sign_up_cubit.dart';
+import '../../../../core/service/service_locator.dart';
 import '../../../../core/utils/app_strings.dart';
-import '../../../../core/utils/app_text_styles.dart';
-import '../widgets/custom_have_account_widget.dart';
-import '../widgets/custom_signUp_form_widget.dart';
+import '../../../../core/widgets/custom_app_bar_widget.dart';
+import '../../domain/repos/auth_repo.dart';
+import 'bodies/sign_up_body.dart';
 
 class SignupView extends StatelessWidget {
   const SignupView({super.key});
@@ -10,39 +13,16 @@ class SignupView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          title: Text(
-            AppStrings.register,
-            style: AppTextStyle.Cairo700style23.copyWith(fontSize: 19),
-          ),
-          leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: Icon(Icons.arrow_back_ios_new_rounded),
-          ),
+      appBar: CustomAppBar(
+        title: AppStrings.register,
+        icon: const Icon(Icons.arrow_back_ios_new_rounded),
+      ),
+      body: BlocProvider(
+        create: (context) => SignUpCubit(
+          getIt<AuthRepo>()
         ),
-        body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.0),
-          child: CustomScrollView(
-            physics: const BouncingScrollPhysics(),
-            slivers: [
-              const SliverToBoxAdapter(child: SizedBox(height: 24)),
-              const SliverToBoxAdapter(child: CustomSignUpForm()),
-              const SliverToBoxAdapter(child: SizedBox(height: 24)),
-              SliverToBoxAdapter(
-                child: HaveAccountWidget(
-                    textPart1: AppStrings.alreadyHaveAccount,
-                    textPart2: AppStrings.login,
-                    onPress: () {
-                      Navigator.pop(context);
-                    }),
-              ),
-            ],
-          ),
-        ));
+        child: SignUpBody(),
+      ),
+    );
   }
 }
