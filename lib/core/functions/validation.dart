@@ -3,16 +3,9 @@
 import 'package:email_validator/email_validator.dart';
 
 class Validation {
-  static String? validateFirstName(String? value) {
+  static String? validateName(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Please enter First Name';
-    }
-    return null;
-  }
-
-  static String? validateLastName(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Please enter Last Name';
+      return 'هذا الحقل مطلوب';
     }
     return null;
   }
@@ -20,9 +13,9 @@ class Validation {
   /// Validates the email format.
   static String? validateEmail(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Please enter an email';
+      return 'هذا الحقل مطلوب';
     } else if (!EmailValidator.validate(value)) {
-      return 'Please enter an email in the valid format';
+      return 'من فضلك ادخل بريد الكتروني صحيح';
     }
     return null;
   }
@@ -30,21 +23,11 @@ class Validation {
   /// Validates the password to ensure it meets specific criteria.
   static String? validatePassword(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Please enter a password';
+      return 'هذا الحقل مطلوب';
     } else if (value.length <= 8) {
-      return 'Password must be more than 8 characters';
+      return 'لا يمكن ان يكون كلمة المرور اقل من 8 حروف';
     } else if (!RegExp(r'^(?=.*[A-Z])').hasMatch(value)) {
-      return 'Password must contain at least one capital letter';
-    }
-    return null;
-  }
-
-  /// Validates if the confirm password matches the password.
-  static String? validateConfirmPassword(String? value, String password) {
-    if (value == null || value.isEmpty) {
-      return 'Please confirm your password';
-    } else if (value != password) {
-      return 'Passwords do not match';
+      return 'يجب ان تحتوي كلمة المرور على حرف كبير على الاقل';
     }
     return null;
   }

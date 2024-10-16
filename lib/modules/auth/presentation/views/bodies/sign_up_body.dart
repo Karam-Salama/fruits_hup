@@ -21,11 +21,12 @@ class SignUpBody extends StatelessWidget {
           const SliverToBoxAdapter(child: SizedBox(height: 24)),
           SliverToBoxAdapter(
             child: HaveAccountWidget(
-                textPart1: AppStrings.alreadyHaveAccount,
-                textPart2: AppStrings.login,
-                onPress: () {
-                  Navigator.pop(context);
-                }),
+              textPart1: AppStrings.alreadyHaveAccount,
+              textPart2: AppStrings.login,
+              onPress: () {
+                Navigator.pop(context);
+              },
+            ),
           ),
         ],
       ),

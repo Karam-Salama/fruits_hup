@@ -13,6 +13,7 @@ class CustomTextFormField extends StatelessWidget {
   final Function(String)? onChanged;
   final Function(String)? onFieldSubmitted;
   final String? Function(String?)? validator;
+  final void Function(String?)? onSaved;
 
   const CustomTextFormField({
     super.key,
@@ -23,12 +24,14 @@ class CustomTextFormField extends StatelessWidget {
     this.onChanged,
     this.onFieldSubmitted,
     this.validator,
+    this.onSaved,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       validator: validator,
+      onSaved: onSaved,
       onChanged: onChanged,
       onFieldSubmitted: onFieldSubmitted,
       obscureText: obscureText!,

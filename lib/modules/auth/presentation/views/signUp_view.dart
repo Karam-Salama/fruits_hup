@@ -18,9 +18,7 @@ class SignupView extends StatelessWidget {
         icon: const Icon(Icons.arrow_back_ios_new_rounded),
       ),
       body: BlocProvider(
-        create: (context) => SignUpCubit(
-          getIt<AuthRepo>()
-        ),
+        create: (context) => SignUpCubit(getIt<AuthRepo>()),
         child: SignUpBody(),
       ),
     );

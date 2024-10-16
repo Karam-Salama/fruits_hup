@@ -16,3 +16,6 @@ final class SignUpErrorState extends SignUpState {
   SignUpErrorState({required this.errorMessage});
 }
 
+final class UpdateTermsAndConditionsState extends SignUpState {}
+
+final class ObscurePasswordTextUpdateState extends SignUpState {}
