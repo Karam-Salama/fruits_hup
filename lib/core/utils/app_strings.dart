@@ -42,6 +42,10 @@ abstract class AppStrings {
       "قم بإنشاء كلمة مرور جديدة لتسجيل الدخول";
   static const String creatingNewPassword = "إنشاء كلمة مرور جديدة";
   static const String passwordChanged = "تم تغيير الباسورد بنجاح";
+
+  // home screen
+  static const String home = "الرئيسية";
+
 }
 
 class FirebaseCollectionName {}

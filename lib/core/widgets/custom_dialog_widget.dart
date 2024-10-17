@@ -10,8 +10,13 @@ class CustomDialog extends StatelessWidget {
   final String textButton;
   final VoidCallback? onpressed;
 
-  const CustomDialog(
-      {super.key, required this.message, this.icon, required this.textButton, this.onpressed});
+  const CustomDialog({
+    super.key,
+    required this.message,
+    this.icon,
+    required this.textButton,
+    required this.onpressed,
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -91,10 +91,13 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
                         } else {
                           buildCustomDialog(
                             context,
-                            const CustomDialog(
+                            CustomDialog(
                               icon: Icons.warning_amber_rounded,
                               message: 'يجب عليك الموافقة على الشروط والأحكام',
                               textButton: 'جرب مرة اخرى',
+                              onpressed: () {
+                                Navigator.pop(context);
+                              },
                             ),
                           );
                         }

@@ -35,8 +35,6 @@ void checkSignInStateEitherFailOrSuccess(
         ),
       );
     }
-
-    customReplacementNavigate(context, HomeView.routeName);
   } else if (state is SignInErrorState) {
     buildCustomDialog(
       context,
