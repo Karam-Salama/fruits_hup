@@ -8,9 +8,10 @@ class CustomDialog extends StatelessWidget {
   final IconData? icon;
   final String message;
   final String textButton;
+  final VoidCallback? onpressed;
 
   const CustomDialog(
-      {super.key, required this.message, this.icon, required this.textButton});
+      {super.key, required this.message, this.icon, required this.textButton, this.onpressed});
 
   @override
   Widget build(BuildContext context) {
@@ -40,9 +41,7 @@ class CustomDialog extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             text: textButton,
             backGroundColor: AppColors.primaryColor,
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
+            onPressed: onpressed!,
           ),
         ],
       ),

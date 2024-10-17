@@ -23,12 +23,11 @@ class FirebaseAuthService {
             message: 'يوجد حساب بالفعل بهذا البريد الإلكتروني.');
       } else if (e.code == 'invalid-email') {
         throw CustomException(message: 'عنوان البريد الإلكتروني غير صالح.');
-      }else if (e.code == 'operation-not-allowed') {
+      } else if (e.code == 'operation-not-allowed') {
         throw CustomException(message: 'عنوان البريد الإلكتروني غير مسموح به.');
-      } else if( e.code == 'network-request-failed'){
+      } else if (e.code == 'network-request-failed') {
         throw CustomException(message: 'يرجى التحقق من الاتصال بالانترنت.');
-      }
-      else {
+      } else {
         throw CustomException(
             message: 'حدث خطأ، يرجى المحاولة مرة أخرى لاحقًا.');
       }
@@ -36,5 +35,43 @@ class FirebaseAuthService {
       log('Exception in FirebaseAuthService.createUserWithEmailAndPassword method:  ${e.toString()}');
       throw CustomException(message: 'حدث خطأ، يرجى المحاولة مرة أخرى لاحقًا.');
     }
+  }
+
+  Future<User> signInWithEmailAndPassword(
+      {required String email, required String password}) async {
+    try {
+      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      return credential.user!;
+    } on FirebaseAuthException catch (e) {
+      log('Exception in FirebaseAuthService.signInWithEmailAndPassword method:  ${e.toString()} and code is ${e.code}');
+      if (e.code == 'user-not-found') {
+        throw CustomException(
+            message: ' البريد الإلكتروني او الرقم السري غير صحيح.');
+      } else if (e.code == 'wrong-password') {
+        throw CustomException(
+            message: ' البريد الإلكتروني او الرقم السري غير صحيح.');
+      } else if (e.code == 'invalid-email') {
+        throw CustomException(message: 'عنوان البريد الإلكتروني غير صالح.');
+      } else if (e.code == 'user-disabled') {
+        throw CustomException(message: 'حسابك معطل.');
+      } else if (e.code == 'operation-not-allowed') {
+        throw CustomException(message: 'عنوان البريد الإلكتروني غير مسموح به.');
+      } else if (e.code == 'network-request-failed') {
+        throw CustomException(message: 'يرجى التحقق من الاتصال بالانترنت.');
+      } else {
+        throw CustomException(
+            message: 'حدث خطأ، يرجى المحاولة مرة أخرى لاحقًا.');
+      }
+    } catch (e) {
+      log('Exception in FirebaseAuthService.signInWithEmailAndPassword method:  ${e.toString()}');
+      throw CustomException(message: 'حدث خطأ، يرجى المحاولة مرة أخرى لاحقًا.');
+    }
+  }
+
+  Future<void> signOut() async {
+    await FirebaseAuth.instance.signOut();
   }
 }

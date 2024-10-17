@@ -4,7 +4,7 @@ import '../../../../../core/functions/navigation.dart';
 import '../../../../../core/utils/app_strings.dart';
 import '../signUp_view.dart';
 import '../../widgets/custom_have_account_widget.dart';
-import '../../widgets/custom_login_form_widget.dart';
+import '../../widgets/custom_signIn_form_widget.dart';
 import '../../widgets/custom_or_divider_widget.dart';
 import '../../widgets/custom_social_Buttons_widget.dart';
 

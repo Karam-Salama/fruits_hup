@@ -9,7 +9,7 @@ import '../../../../core/widgets/custom_dialog_widget.dart';
 import '../auth_cubits/Sign_Up_Cubit/sign_up_cubit.dart';
 import '../auth_cubits/Sign_Up_Cubit/sign_up_state.dart';
 import '../functions/build_custom_dialog.dart';
-import '../functions/check_state.dart';
+import '../functions/check_signUp_state.dart';
 import 'custom_terms_and_conds_widget.dart';
 import 'cutom_text_form_field_widget_.dart';
 
@@ -25,7 +25,7 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
   Widget build(BuildContext context) {
     return BlocConsumer<SignUpCubit, SignUpState>(
       listener: (BuildContext context, state) {
-        checkStateEitherFailOrSuccess(state, context);
+        checkSignUpStateEitherFailOrSuccess(state, context);
       },
       builder: (context, state) {
         SignUpCubit signUpCubit = BlocProvider.of<SignUpCubit>(context);
