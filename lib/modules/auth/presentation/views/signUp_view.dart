@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruits_hup/core/functions/navigation.dart';
 import 'package:fruits_hup/modules/auth/presentation/auth_cubits/Sign_Up_Cubit/sign_up_cubit.dart';
+import 'package:fruits_hup/modules/auth/presentation/views/signIn_view.dart';
 import '../../../../core/service/service_locator.dart';
 import '../../../../core/utils/app_strings.dart';
 import '../../../../core/widgets/custom_app_bar_widget.dart';
@@ -16,6 +18,9 @@ class SignupView extends StatelessWidget {
       appBar: CustomAppBar(
         title: AppStrings.register,
         icon: const Icon(Icons.arrow_back_ios_new_rounded),
+        onPressed: () {
+          customNavigate(context, SignInView.routeName);
+        },
       ),
       body: BlocProvider(
         create: (context) => SignUpCubit(getIt<AuthRepo>()),
