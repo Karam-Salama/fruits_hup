@@ -47,7 +47,9 @@ class CustomSocialButtons extends StatelessWidget {
               text: text2!,
               backGroundColor: Color(0xFFF6FBF3),
               borderColor: Color(0xFFDDDFDF),
-              onPressed: () {},
+              onPressed: () {
+                signInCubit.signInWithApple();
+              },
               style: AppTextStyle.Cairo600style13.copyWith(fontSize: 16),
               mainAxisAlignment: MainAxisAlignment.start,
             ),
