@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import '../errors/exceptions.dart';
@@ -75,15 +76,12 @@ class FirebaseAuthService {
   Future<User> signInWithGoogle() async {
     try {
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-
       final GoogleSignInAuthentication? googleAuth =
           await googleUser?.authentication;
-
       final credential = GoogleAuthProvider.credential(
         accessToken: googleAuth?.accessToken,
         idToken: googleAuth?.idToken,
       );
-
       return (await FirebaseAuth.instance.signInWithCredential(credential))
           .user!;
     } on FirebaseAuthException catch (e) {
@@ -107,6 +105,37 @@ class FirebaseAuthService {
       }
     } catch (e) {
       log('Exception in FirebaseAuthService.signInWithGoogle method: ${e.toString()}');
+      throw CustomException(message: 'حدث خطأ، يرجى المحاولة مرة أخرى لاحقًا.');
+    }
+  }
+
+  Future<User> signInWithFacebook() async {
+    try {
+      final LoginResult loginResult = await FacebookAuth.instance.login();
+      final OAuthCredential facebookAuthCredential =
+          FacebookAuthProvider.credential(loginResult.accessToken!.tokenString);
+      return (await FirebaseAuth.instance.signInWithCredential(facebookAuthCredential)).user!;
+    } on FirebaseAuthException catch (e) {
+      log('Exception in FirebaseAuthService.signInWithFacebook method:  ${e.toString()} and code is ${e.code}');
+      if (e.code == 'account-exists-with-different-credential') {
+        throw CustomException(
+            message: 'يوجد حساب بالفعل بهذا البريد الإلكتروني.');
+      } else if (e.code == 'invalid-credential' ||
+          e.code == 'operation-not-allowed' ||
+          e.code == 'user-not-found' ||
+          e.code == 'wrong-password') {
+        throw CustomException(
+            message: 'حدث خطاء، يرجى المحاولة مرة اخرى لاحقا.');
+      } else if (e.code == 'user-disabled') {
+        throw CustomException(message: 'حسابك معطل.');
+      } else if (e.code == 'network-request-failed') {
+        throw CustomException(message: 'يرجى التحقق من الاتصال بالانترنت.');
+      } else {
+        throw CustomException(
+            message: 'حدث خطأ، يرجى المحاولة مرة أخرى لاحقًا.');
+      }
+    } catch (e) {
+      log('Exception in FirebaseAuthService.signInWithFacebook method: ${e.toString()}');
       throw CustomException(message: 'حدث خطأ، يرجى المحاولة مرة أخرى لاحقًا.');
     }
   }
