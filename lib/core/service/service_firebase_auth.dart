@@ -187,7 +187,30 @@ class FirebaseAuthService {
     }
   }
 
+  Future<void> forgetPassword({
+    required String email,
+  }) async {
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+    } on FirebaseAuthException catch (e) {
+      log('Exception in FirebaseAuthService.forgetPassword method: ${e.toString()}');
+      if (e.message ==
+          'There is no user record corresponding to this identifier. The user may have been deleted.') {
+        throw CustomException(
+            message: 'لا يوجد حساب مسجل بهذا البريد الإلكتروني.');
+      }
+    } catch (e) {
+      log('Exception in FirebaseAuthService.forgetPassword method: ${e.toString()}');
+      throw CustomException(message: 'حدث خطأ، يرجى المحاولة مرة أخرى لاحقًا.');
+    }
+  }
+
   Future<void> signOut() async {
-    await FirebaseAuth.instance.signOut();
+    try {
+      await FirebaseAuth.instance.signOut();
+    } catch (e) {
+      log('Exception in FirebaseAuthService.signOut method: ${e.toString()}');
+      throw CustomException(message: 'حدث خطاء، يرجى المحاولة مرة اخرى لاحقا.');
+    }
   }
 }

@@ -85,9 +85,7 @@ class _CustomLoginFormState extends State<CustomLoginForm> {
                           if (signInCubit.signInFormKey.currentState!
                               .validate()) {
                             signInCubit.signInFormKey.currentState!.save();
-                            context
-                                .read<SignInCubit>()
-                                .signInWithEmailAndPassword(
+                            signInCubit.signInWithEmailAndPassword(
                                   signInCubit.email!,
                                   signInCubit.password!,
                                 );

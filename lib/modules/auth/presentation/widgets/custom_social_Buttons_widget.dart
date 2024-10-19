@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_hup/core/utils/assets.dart';
+import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_text_styles.dart';
 import '../../../../core/widgets/custom_btn.dart';
 
@@ -49,18 +50,21 @@ class CustomSocialButtons extends StatelessWidget {
             Platform.isIOS
                 ? Column(
                     children: [
-                      CustomButton(
-                        imageIcon: Assets.assetsIconsAppleIcon,
-                        text: text2!,
-                        backGroundColor: Color(0xFFF6FBF3),
-                        borderColor: Color(0xFFDDDFDF),
-                        onPressed: () {
-                          // signInsocialCubit.signInWithApple();
-                        },
-                        style:
-                            AppTextStyle.Cairo600style13.copyWith(fontSize: 16),
-                        mainAxisAlignment: MainAxisAlignment.start,
-                      ),
+                      state is SignInSocialLoadingState
+                          ? CustomButton(
+                              imageIcon: Assets.assetsIconsAppleIcon,
+                              text: text2!,
+                              backGroundColor: Color(0xFFF6FBF3),
+                              borderColor: Color(0xFFDDDFDF),
+                              onPressed: () {
+                                // signInsocialCubit.signInWithApple();
+                              },
+                              style: AppTextStyle.Cairo600style13.copyWith(
+                                  fontSize: 16),
+                              mainAxisAlignment: MainAxisAlignment.start,
+                            )
+                          : CircularProgressIndicator(
+                              color: AppColors.primaryColor),
                       const SizedBox(height: 16),
                     ],
                   )
@@ -75,7 +79,7 @@ class CustomSocialButtons extends StatelessWidget {
               },
               style: AppTextStyle.Cairo600style13.copyWith(fontSize: 16),
               mainAxisAlignment: MainAxisAlignment.start,
-            ),
+            )
           ],
         );
       },

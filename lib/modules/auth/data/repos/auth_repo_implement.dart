@@ -89,6 +89,18 @@ class AuthRepoImplement extends AuthRepo {
   }
 
   @override
+  Future<void> forgetPassword(String email) async {
+    try {
+      return await firebaseAuthService.forgetPassword(email: email);
+    } on CustomException catch (e) {
+      throw ServerFailure(e.message);
+    } catch (e) {
+      log('Exception in AuthRepoImplementation.forgetPassword method: ${e.toString()}');
+      throw ServerFailure('حدث خطأ، يرجى المحاولة مرة أخرى لاحقًا.');
+    }
+  }
+
+  @override
   Future<void> signOut() async {
     try {
       await firebaseAuthService.signOut();
