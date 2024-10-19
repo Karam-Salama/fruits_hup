@@ -22,7 +22,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   void initState() {
     bool welcomeVisited =
         getIt<CacheHelper>().getData(key: "welcomeVisited") ?? false;
-    if (welcomeVisited) {
+    if (welcomeVisited == true) {
       FirebaseAuth.instance.currentUser == null
           ? delayedNavigate(SignInView.routeName)
           : FirebaseAuth.instance.currentUser!.emailVerified == true
@@ -56,7 +56,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   }
 
   void delayedNavigate(String routeName) {
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 2), () {
       customReplacementNavigate(context, routeName);
     });
   }

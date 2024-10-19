@@ -39,6 +39,7 @@ class SignUpCubit extends Cubit<SignUpState> {
       (userEntity) => emit(SignUpSuccessState(userEntity: userEntity)),
     );
   }
+
   Future<void> verifyEmail() async {
     await FirebaseAuth.instance.currentUser!.sendEmailVerification();
   }
@@ -50,5 +51,4 @@ class SignUpCubit extends Cubit<SignUpState> {
   //     'emailAddress': emailAddress,
   //   });
   // }
-
 }

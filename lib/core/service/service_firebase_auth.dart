@@ -53,7 +53,7 @@ class FirebaseAuthService {
       return credential.user!;
     } on FirebaseAuthException catch (e) {
       log('Exception in FirebaseAuthService.signInWithEmailAndPassword method:  ${e.toString()} and code is ${e.code}');
-      if (e.code == 'user-not-found') {
+      if (e.code == 'user-not-found' || e.code == 'invalid-credential') {
         throw CustomException(
             message: ' البريد الإلكتروني او الرقم السري غير صحيح.');
       } else if (e.code == 'wrong-password') {
@@ -176,7 +176,8 @@ class FirebaseAuthService {
         idToken: appleCredential.identityToken,
         rawNonce: rawNonce,
       );
-      return (await FirebaseAuth.instance.signInWithCredential(oauthCredential)).user!;
+      return (await FirebaseAuth.instance.signInWithCredential(oauthCredential))
+          .user!;
     } on CustomException catch (e) {
       log('Exception in FirebaseAuthService.signInWithApple method:  ${e.toString()}');
       throw CustomException(message: 'حدث خطاء، يرجى المحاولة مرة أخرى لاحقا.');

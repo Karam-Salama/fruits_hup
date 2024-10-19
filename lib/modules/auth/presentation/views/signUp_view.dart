@@ -19,7 +19,7 @@ class SignupView extends StatelessWidget {
         title: AppStrings.register,
         icon: const Icon(Icons.arrow_back_ios_new_rounded),
         onPressed: () {
-          customNavigate(context, SignInView.routeName);
+          customReplacementNavigate(context, SignInView.routeName);
         },
       ),
       body: BlocProvider(
