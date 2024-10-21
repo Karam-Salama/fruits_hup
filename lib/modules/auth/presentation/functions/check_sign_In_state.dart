@@ -11,31 +11,17 @@ import 'build_custom_dialog.dart';
 void checkSignInSocialStateEitherFailOrSuccess(
     SignInSocialState state, BuildContext context) {
   if (state is SignInSocialSuccessState) {
-    if (FirebaseAuth.instance.currentUser!.emailVerified) {
-      buildCustomDialog(
-        context,
-        CustomDialog(
-          icon: Icons.check_circle,
-          message: 'تم تسجيل الدخول بنجاح',
-          textButton: 'حسناً',
-          onpressed: () {
-            customReplacementNavigate(context, HomeView.routeName);
-          },
-        ),
-      );
-    } else {
-      buildCustomDialog(
-        context,
-        CustomDialog(
-          icon: Icons.error,
-          message: 'برجاء تفعيل حسابك',
-          textButton: 'حسناً',
-          onpressed: () {
-            Navigator.pop(context);
-          },
-        ),
-      );
-    }
+    buildCustomDialog(
+      context,
+      CustomDialog(
+        icon: Icons.check_circle,
+        message: 'تم تسجيل الدخول بنجاح',
+        textButton: 'حسناً',
+        onpressed: () {
+          customReplacementNavigate(context, HomeView.routeName);
+        },
+      ),
+    );
   } else if (state is SignInSocialErrorState) {
     buildCustomDialog(
       context,
@@ -50,10 +36,6 @@ void checkSignInSocialStateEitherFailOrSuccess(
     );
   }
 }
-
-
-
-
 
 void checkSignInStateEitherFailOrSuccess(
     SignInState state, BuildContext context) {
