@@ -205,6 +205,19 @@ class FirebaseAuthService {
     }
   }
 
+  Future deleteUser() async {
+    try {
+      await FirebaseAuth.instance.currentUser!.delete();
+    } on FirebaseAuthException catch (e) {
+      log('Exception in FirebaseAuthService.deleteUser method: ${e.toString()}');
+      throw CustomException(message: 'حدث خطاء، يرجى المحاولة مرة أخرى لاحقا.');
+    } catch (e) {
+      log('Exception in FirebaseAuthService.deleteUser method: ${e.toString()}');
+      throw CustomException(
+          message: 'حدث خطاء، يرجى المحاولة مرة أخرى لاحقًا.');
+    }
+  }
+
   Future<void> signOut() async {
     try {
       await FirebaseAuth.instance.signOut();

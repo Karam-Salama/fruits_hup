@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_hup/modules/auth/domain/repos/auth_repo.dart';
@@ -32,23 +31,13 @@ class SignUpCubit extends Cubit<SignUpState> {
     emit(SignUpLoadingState());
     final result =
         await authRepo.createUserWithEmailAndPassword(email, password, name);
-    // await addUserProfile();
-    await verifyEmail();
     result.fold(
       (failure) => emit(SignUpErrorState(errorMessage: failure.message)),
       (userEntity) => emit(SignUpSuccessState(userEntity: userEntity)),
     );
   }
 
-  Future<void> verifyEmail() async {
-    await FirebaseAuth.instance.currentUser!.sendEmailVerification();
-  }
 
-  // Future<void> addUserProfile() async {
-  //   CollectionReference users = FirebaseFirestore.instance.collection('Users');
-  //   await users.add({
-  //     'name': name,
-  //     'emailAddress': emailAddress,
-  //   });
-  // }
+
+
 }

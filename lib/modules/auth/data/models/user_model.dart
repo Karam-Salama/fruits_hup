@@ -3,15 +3,23 @@ import '../../domain/entities/user_entity.dart';
 
 class UserModel extends UserEntity {
   UserModel({
-    required super.email,
     required super.name,
+    required super.email,
     required super.uId,
   });
   factory UserModel.fromFirebaseUser(User user) {
     return UserModel(
-      email: user.displayName ?? '',
-      name: user.email ?? '',
+      name: user.displayName ?? '',
+      email: user.email ?? '',
       uId: user.uid,
+    );
+  }
+
+  factory UserModel.fromJson(Map<String, dynamic> json) {
+    return UserModel(
+      name: json['name'] ?? '',
+      email: json['email'] ?? '',
+      uId: json['uId'] ?? '',
     );
   }
 }
