@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/functions/validation.dart';
-import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_strings.dart';
 import '../../../../core/utils/app_text_styles.dart';
 import '../../../../core/widgets/custom_btn.dart';
@@ -42,28 +41,24 @@ class _CustomForgetPasswordFormState extends State<CustomForgetPasswordForm> {
                 validator: Validation.validateEmail,
               ),
               const SizedBox(height: 30),
-              state is ResetPasswordLoadingState
-                  ? CustomButton(
-                      text: AppStrings.forgetPassword,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      style: AppTextStyle.Cairo700style16,
-                      onPressed: () async {
-                        if (resetPasswordCubit
-                            .resetPasswordFormKey.currentState!
-                            .validate()) {
-                          resetPasswordCubit.resetPasswordFormKey.currentState!
-                              .save();
-                          resetPasswordCubit
-                              .resetPassword(resetPasswordCubit.email!);
-                        } else {
-                          setState(() {
-                            resetPasswordCubit.resetPasswordAutoValidateMode =
-                                AutovalidateMode.always;
-                          });
-                        }
-                      },
-                    )
-                  : CircularProgressIndicator(color: AppColors.primaryColor),
+              CustomButton(
+                text: AppStrings.forgetPassword,
+                mainAxisAlignment: MainAxisAlignment.center,
+                style: AppTextStyle.Cairo700style16,
+                onPressed: () async {
+                  if (resetPasswordCubit.resetPasswordFormKey.currentState!
+                      .validate()) {
+                    resetPasswordCubit.resetPasswordFormKey.currentState!
+                        .save();
+                    resetPasswordCubit.resetPassword(resetPasswordCubit.email!);
+                  } else {
+                    setState(() {
+                      resetPasswordCubit.resetPasswordAutoValidateMode =
+                          AutovalidateMode.always;
+                    });
+                  }
+                },
+              ),
               const SizedBox(height: 48),
             ],
           ),

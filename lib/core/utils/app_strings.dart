@@ -30,7 +30,7 @@ abstract class AppStrings {
   // forgot password screen
   static const String forgottingPassword = "نسيان كلمة المرور";
   static const String forgotPasswordSubTitle =
-      "لا تقلق ، ما عليك سوى كتابة رقم هاتفك وسنرسل رمز التحقق.";
+      "لا تقلق ، ما عليك سوى كتابة البريد الإلكتروني الذي أدخلته عند التسجيل.";
   static const String forgotPassword = "نسيت كلمة المرور ؟";
   static const String checkYourEmailTitle = "التحقق من الرمز";
   static const String checkYourNumberSubTitle =
@@ -45,7 +45,6 @@ abstract class AppStrings {
 
   // home screen
   static const String home = "الرئيسية";
-
 }
 
 class FirebaseCollectionName {}
