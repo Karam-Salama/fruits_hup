@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:fruits_hup/core/utils/app_colors.dart';
 import 'package:fruits_hup/generated/l10n.dart';
 
 import '../core/functions/onGenerate_routes.dart';
@@ -11,7 +12,11 @@ class FruitHup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(fontFamily: 'Cairo'),
+      theme: ThemeData(
+          fontFamily: 'Cairo',
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: AppColors.primaryColor,
+          )),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoute,
       initialRoute: SplashView.routeName,

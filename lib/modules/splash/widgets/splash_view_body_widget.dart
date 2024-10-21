@@ -1,11 +1,13 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fruits_hup/modules/home/presentation/views/home_view.dart';
 
 import '../../../core/database/cache/cache_helper.dart';
 import '../../../core/functions/navigation.dart';
 import '../../../core/service/service_locator.dart';
 import '../../../core/utils/assets.dart';
-import '../../auth/views/login_view.dart';
+import '../../auth/presentation/views/signIn_view.dart';
 import '../../onboarding/views/onboarding_view.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -20,10 +22,12 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   void initState() {
     bool welcomeVisited =
         getIt<CacheHelper>().getData(key: "welcomeVisited") ?? false;
-    if (welcomeVisited) {
-      // FirebaseAuth.instance.currentUser == null ?
-      delayedNavigate(LoginView.routeName);
-      // : FirebaseAuth.instance.currentUser!.emailVerified == true ? delayedNavigate(context, "/homeNavBar") : delayedNavigate(context, "/loginDefault");
+    if (welcomeVisited == true) {
+      FirebaseAuth.instance.currentUser == null
+          ? delayedNavigate(SignInView.routeName)
+          : FirebaseAuth.instance.currentUser!.emailVerified == true
+              ? delayedNavigate(HomeView.routeName)
+              : delayedNavigate(SignInView.routeName);
     } else {
       delayedNavigate(OnboardingView.routeName);
     }
@@ -52,7 +56,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   }
 
   void delayedNavigate(String routeName) {
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 2), () {
       customReplacementNavigate(context, routeName);
     });
   }
