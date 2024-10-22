@@ -9,7 +9,7 @@ import 'package:fruits_hup/core/errors/failures.dart';
 import 'package:fruits_hup/modules/auth/domain/entities/user_entity.dart';
 import '../../../../core/service/database_service.dart';
 import '../../../../core/service/service_firebase_auth.dart';
-import '../../../../core/utils/backend_endpoints.dart';
+import '../../../../core/utils/app_Backend_Endpoints.dart';
 import '../../domain/repos/auth_repo.dart';
 import '../models/user_model.dart';
 

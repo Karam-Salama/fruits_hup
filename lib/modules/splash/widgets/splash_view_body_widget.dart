@@ -6,7 +6,7 @@ import 'package:fruits_hup/modules/home/presentation/views/home_view.dart';
 import '../../../core/database/cache/cache_helper.dart';
 import '../../../core/functions/navigation.dart';
 import '../../../core/service/service_locator.dart';
-import '../../../core/utils/assets.dart';
+import '../../../core/utils/app_assets.dart';
 import '../../auth/presentation/views/signIn_view.dart';
 import '../../onboarding/views/onboarding_view.dart';
 

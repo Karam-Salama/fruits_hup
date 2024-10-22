@@ -9,7 +9,7 @@ class CacheHelper {
     sharedPreferences = await SharedPreferences.getInstance();
   }
 
-//! this method to put data in local database using key
+//! this method to get data in local database using key
 
   String? getDataString({
     required String key,

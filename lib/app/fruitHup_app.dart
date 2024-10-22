@@ -13,10 +13,11 @@ class FruitHup extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-          fontFamily: 'Cairo',
-          colorScheme: ColorScheme.fromSeed(
-            seedColor: AppColors.primaryColor,
-          )),
+        fontFamily: 'Cairo',
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: AppColors.primaryColor,
+        ),
+      ),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoute,
       initialRoute: SplashView.routeName,

@@ -4,7 +4,7 @@ import 'package:fruits_hup/modules/auth/presentation/views/signUp_view.dart';
 import '../../../core/database/cache/cache_helper.dart';
 import '../../../core/functions/navigation.dart';
 import '../../../core/service/service_locator.dart';
-import '../../../core/utils/assets.dart';
+import '../../../core/utils/app_assets.dart';
 import 'page_view_item_widget.dart';
 
 class OnboardingPageViewWidget extends StatelessWidget {
