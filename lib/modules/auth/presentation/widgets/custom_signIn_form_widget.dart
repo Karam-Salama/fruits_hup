@@ -65,7 +65,7 @@ class _CustomLoginFormState extends State<CustomLoginForm> {
                 ),
                 const SizedBox(height: 8),
                 CustomHeaderText(
-                  onpress: () {
+                  onpress1: () {
                     customNavigate(context, ForgetPasswordView.routeName);
                   },
                   text1: AppStrings.forgotPassword,
@@ -86,9 +86,9 @@ class _CustomLoginFormState extends State<CustomLoginForm> {
                               .validate()) {
                             signInCubit.signInFormKey.currentState!.save();
                             signInCubit.signInWithEmailAndPassword(
-                                  signInCubit.email!,
-                                  signInCubit.password!,
-                                );
+                              signInCubit.email!,
+                              signInCubit.password!,
+                            );
                           } else {
                             setState(() {
                               signInCubit.SignInAutoValidateMode =
