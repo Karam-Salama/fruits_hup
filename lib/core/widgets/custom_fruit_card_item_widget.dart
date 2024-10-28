@@ -14,13 +14,21 @@ class FruitCardItem extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Color(0xfff3f5f7),
-        borderRadius: BorderRadius.circular(4),
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Color(0x19000000),
+            spreadRadius: 0,
+            blurRadius: 25,
+            offset: Offset(0, 2),
+          ),
+        ],
       ),
       child: Stack(
         children: [
           Positioned(
-            top: 12,
-            right: 12,
+            top: 15,
+            right: 15,
             child: InkWell(
               onTap: () {},
               child: SvgPicture.asset(Assets.assetsIconsHeart),
@@ -31,8 +39,8 @@ class FruitCardItem extends StatelessWidget {
               children: [
                 const SizedBox(height: 20),
                 Container(
-                  width: 131,
-                  height: 85,
+                  width: 100,
+                  height: 80,
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage(Assets.assetsIconsWatermelon),
@@ -40,7 +48,7 @@ class FruitCardItem extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 23),
+                const SizedBox(height: 15),
                 ListTile(
                   title: Text(
                     AppStrings.watermelon,
@@ -50,18 +58,21 @@ class FruitCardItem extends StatelessWidget {
                     AppStrings.watermelonPrice,
                     style: AppTextStyle.Cairo600style13.copyWith(
                       color: const Color(0xffF4A91F),
-                      fontSize: 14,
+                      fontSize: 10,
                     ),
                   ),
-                  trailing: InkWell(
-                    onTap: () {},
-                    child: Container(
-                      padding: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        color: AppColors.primaryColor,
-                        shape: BoxShape.circle,
+                  trailing: Transform.translate(
+                    offset: const Offset(-10, 0),
+                    child: InkWell(
+                      onTap: () {},
+                      child: Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: AppColors.primaryColor,
+                          shape: BoxShape.circle,
+                        ),
+                        child: SvgPicture.asset(Assets.assetsIconsAdd),
                       ),
-                      child: SvgPicture.asset(Assets.assetsIconsAdd),
                     ),
                   ),
                 ),

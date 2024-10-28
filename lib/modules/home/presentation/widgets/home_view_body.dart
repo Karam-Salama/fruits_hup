@@ -12,9 +12,9 @@ class HomeViewBody extends StatelessWidget {
       body: CustomScrollView(
         physics: const BouncingScrollPhysics(),
         slivers: [
-          const SliverToBoxAdapter(child: SizedBox(height: 60)),
+          const SliverToBoxAdapter(child: SizedBox(height: 30)),
           const SliverToBoxAdapter(child: CustomHomeAppBarWidget()),
-          const SliverToBoxAdapter(child: SizedBox(height: 16)),
+          const SliverToBoxAdapter(child: SizedBox(height: 12)),
           const SliverToBoxAdapter(child: CustomSearchBarWidget()),
           const SliverToBoxAdapter(child: SizedBox(height: 12)),
           const SliverToBoxAdapter(child: CustomHomeFeaturedListWidget()),

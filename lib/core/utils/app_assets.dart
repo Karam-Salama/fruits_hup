@@ -136,4 +136,36 @@ class Assets {
   /// Assets for assetsIconsHeart
   /// assets/icons/heart.svg
   static const String assetsIconsHeart = "assets/icons/heart.svg";
+
+  /// Assets for assetsIconsCart
+  /// assets/icons/cart.svg
+  static const String assetsIconsCart = "assets/icons/cart.svg";
+
+  /// Assets for assetsIconsCartActiveIcon
+  /// assets/icons/cart_active_icon.svg
+  static const String assetsIconsCartActiveIcon = "assets/icons/cart_active.svg";
+
+  /// Assets for assetsIconsCategory
+  /// assets/icons/category.svg
+  static const String assetsIconsCategory = "assets/icons/category.svg";
+
+  /// Assets for assetsIconsCategoryActiveIcon
+  /// assets/icons/category_active_icon.svg
+  static const String assetsIconsCategoryActiveIcon = "assets/icons/category_active.svg";
+
+  /// Assets for assetsIconsHome
+  /// assets/icons/home.svg
+  static const String assetsIconsHome = "assets/icons/home.svg";
+
+  /// Assets for assetsIconsHomeActiveIcon
+  /// assets/icons/home_active_icon.svg
+  static const String assetsIconsHomeActiveIcon = "assets/icons/home_active.svg";
+
+    /// Assets for assetsIconsPerson
+  /// assets/icons/person.svg
+  static const String assetsIconsPerson = "assets/icons/person.svg";
+
+  /// Assets for assetsIconsPersonActiveIcon
+  /// assets/icons/person_active_icon.svg
+  static const String assetsIconsPersonActiveIcon = "assets/icons/person_active.svg";
 }

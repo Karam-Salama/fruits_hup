@@ -51,6 +51,8 @@ abstract class AppStrings {
   static const String discount = "خصم 25%";
   static const String buyNow = "تسوق الان";
   static const String mostSold = "الاكثر مبيعا";
+  static const String searching = "البحث";
+  static const String notifications = "الاشعارات";
   static const String more = "المزيد";
   static const String watermelon = "بطيخ";
   static const String watermelonPrice  =  "20 جنية / الكيلو";

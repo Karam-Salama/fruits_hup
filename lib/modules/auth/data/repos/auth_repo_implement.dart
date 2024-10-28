@@ -1,5 +1,6 @@
 // ignore_for_file: unnecessary_null_comparison, unnecessary_type_check
 
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
@@ -7,8 +8,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fruits_hup/core/errors/exceptions.dart';
 import 'package:fruits_hup/core/errors/failures.dart';
 import 'package:fruits_hup/modules/auth/domain/entities/user_entity.dart';
+import '../../../../core/database/cache/cache_helper.dart';
 import '../../../../core/service/database_service.dart';
 import '../../../../core/service/service_firebase_auth.dart';
+import '../../../../core/service/service_locator.dart';
 import '../../../../core/utils/app_Backend_Endpoints.dart';
 import '../../domain/repos/auth_repo.dart';
 import '../models/user_model.dart';
@@ -60,6 +63,7 @@ class AuthRepoImplement extends AuthRepo {
         password: password,
       );
       var userEntity = await getUserData(uid: user.uid);
+      await saveUserData(user: userEntity);
       return Right(userEntity);
     } on CustomException catch (e) {
       return Left(ServerFailure(e.message));
@@ -169,9 +173,10 @@ class AuthRepoImplement extends AuthRepo {
   Future addUserData({required UserEntity user}) async {
     try {
       await databaseService.addData(
-          path: BackendEndpoints.addUserData,
-          data: user.toMap(),
-          documentId: user.uId);
+        path: BackendEndpoints.addUserData,
+        data: UserModel.fromEntity(user).toMap(),
+        documentId: user.uId,
+      );
     } on CustomException catch (e) {
       throw ServerFailure(e.message);
     } catch (e) {
@@ -224,6 +229,12 @@ class AuthRepoImplement extends AuthRepo {
     if (user != null) {
       await firebaseAuthService.deleteUser();
     }
+  }
+
+  @override
+  Future saveUserData({required UserEntity user}) async{
+    var userData = jsonEncode(UserModel.fromEntity(user).toMap());
+    await getIt<CacheHelper>().saveData(key: 'userData', value: userData);
   }
 }
 

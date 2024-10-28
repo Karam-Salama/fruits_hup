@@ -7,15 +7,18 @@ class BestCellingGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverGrid.builder(
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        crossAxisSpacing: 12,
-        mainAxisSpacing: 6,
-        childAspectRatio: 163 / 170,
+    return SliverPadding(
+      padding: const EdgeInsets.symmetric(horizontal: 12.0),
+      sliver: SliverGrid.builder(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 12,
+          mainAxisSpacing: 6,
+          childAspectRatio: 160 / 200,
+        ),
+        itemBuilder: (context, index) => const FruitCardItem(),
+        itemCount: 8,
       ),
-      itemBuilder: (context, index) => const FruitCardItem(),
-      itemCount: 8,
     );
   }
 }
