@@ -83,6 +83,7 @@ class AuthRepoImplement extends AuthRepo {
           path: BackendEndpoints.ifUserExists, documentId: user.uid);
       if (isUserExist) {
         await getUserData(uid: user.uid);
+        await saveUserData(user: userEntity);
       } else {
         await addUserData(user: userEntity);
       }
@@ -111,6 +112,7 @@ class AuthRepoImplement extends AuthRepo {
           path: BackendEndpoints.ifUserExists, documentId: user.uid);
       if (isUserExist) {
         await getUserData(uid: user.uid);
+        await saveUserData(user: userEntity);
       } else {
         await addUserData(user: userEntity);
       }
@@ -139,6 +141,7 @@ class AuthRepoImplement extends AuthRepo {
           path: BackendEndpoints.ifUserExists, documentId: user.uid);
       if (isUserExist) {
         await getUserData(uid: user.uid);
+        await saveUserData(user: userEntity);
       } else {
         await addUserData(user: userEntity);
       }
