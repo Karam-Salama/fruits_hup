@@ -10,7 +10,16 @@ import '../service/service_locator.dart';
 
 UserEntity getUser() {
   var jsonString = getIt<CacheHelper>().getData(key: 'userData');
-  var user = UserModel.fromJson(jsonDecode(jsonString));
+  var user;
+  if (jsonString == null) {
+    return UserEntity(
+      name: '',
+      email: '',
+      uId: '',
+    );
+  } else {
+    user = UserModel.fromJson(jsonDecode(jsonString));
+  }
 
   if (user == null) {
     return UserEntity(
