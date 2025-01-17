@@ -44,20 +44,41 @@ class FirabaseFirestoreService implements DatabaseService {
   }
 
   @override
-  Future<Map<String, dynamic>> getData(
-      {required String path, required String documentId}) async {
+  Future<dynamic> getData({
+    required String path,
+    String? documentId,
+    Map<String, dynamic>? query,
+  }) async {
     try {
-      var data = await firestore.collection(path).doc(documentId).get();
-      return data.data() as Map<String, dynamic>;
+      if (documentId != null) {
+        var data = await firestore.collection(path).doc(documentId).get();
+        return data.data();
+      } else {
+        Query<Map<String, dynamic>> data = firestore.collection(path);
+        if (query != null) {
+          if (query['orderBy'] != null) {
+            var orderByField = query['orderBy'];
+            var descending = query['descending'] ?? false;
+            data = data.orderBy(orderByField, descending: descending);
+          }
+          if (query['limit'] != null) {
+            var limit = query['limit'];
+            data = data.limit(limit);
+          }
+        }
+        var result = await data.get();
+        return result.docs.map((e) => e.data()).toList();
+      }
     } catch (e) {
       log('Exception in FirabaseFirestoreService.getUserData method: ${e.toString()}');
       throw CustomException(
           message: 'حدث خطاء، يرجى المحاولة مرة اخرى لاحقًا.');
     }
   }
-  
+
   @override
-  Future<bool> checkIfDataExists({required String path, required String documentId}) async{
+  Future<bool> checkIfDataExists(
+      {required String path, required String documentId}) async {
     try {
       var data = await firestore.collection(path).doc(documentId).get();
       return data.exists;
