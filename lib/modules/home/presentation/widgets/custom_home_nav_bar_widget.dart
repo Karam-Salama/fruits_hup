@@ -10,7 +10,7 @@ import '../../../setting/presentation/views/setting_view.dart';
 import '../views/best_celling_view.dart';
 import '../views/notification_view.dart';
 import '../views/search_view.dart';
-import 'home_view_body.dart';
+import '../views/home_view.dart';
 
 class HomeNavBarWidget extends StatelessWidget {
   final PersistentTabController _controller = PersistentTabController();
@@ -56,7 +56,7 @@ class HomeNavBarWidget extends StatelessWidget {
 
   List<Widget> _buildScreens() {
     return [
-      HomeViewBody(),
+      HomeView(),
       const CategoryView(),
       const CartView(),
       const SettingView(),

@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import '../widgets/coustom_home_nav_bar_widget.dart';
-import '../widgets/home_view_body.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruits_hup/core/service/service_locator.dart';
+import '../../../../core/cubits/product_cubit/product_cubit.dart';
+import '../../../../core/repos/products_repos/product_repo.dart';
+import '../widgets/custom_home_view_body.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({super.key});
-  static const String routeName = '/home-View';
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: HomeViewBody(),
-      bottomNavigationBar: HomeNavBarWidget(),
+    return BlocProvider(
+      create: (context) => ProductCubit(getIt.get<ProductRepo>())..getBestSellingProducts(),
+      child: HomeViewBody(),
     );
   }
 }

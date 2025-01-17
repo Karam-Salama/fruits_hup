@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/functions/navigation.dart';
 import '../../../../core/widgets/custom_dialog_widget.dart';
-import '../../../home/presentation/views/home_view.dart';
+import '../../../home/presentation/views/main_view.dart';
 import '../auth_cubits/Sign_In_Cubit/sign_in_state.dart';
 import '../auth_cubits/social_auth_cubit/social_state.dart';
 import 'build_custom_dialog.dart';
@@ -18,7 +18,7 @@ void checkSignInSocialStateEitherFailOrSuccess(
         message: 'تم تسجيل الدخول بنجاح',
         textButton: 'حسناً',
         onpressed: () {
-          customReplacementNavigate(context, HomeView.routeName);
+          customReplacementNavigate(context, MainView.routeName);
         },
       ),
     );
@@ -48,7 +48,7 @@ void checkSignInStateEitherFailOrSuccess(
           message: 'تم تسجيل الدخول بنجاح',
           textButton: 'حسناً',
           onpressed: () {
-            customReplacementNavigate(context, HomeView.routeName);
+            customReplacementNavigate(context, MainView.routeName);
           },
         ),
       );
