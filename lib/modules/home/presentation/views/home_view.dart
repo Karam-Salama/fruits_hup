@@ -9,7 +9,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ProductCubit(getIt.get<ProductRepo>())..getBestSellingProducts(),
+      create: (context) => ProductCubit(getIt.get<ProductRepo>()),
       child: HomeViewBody(),
     );
   }

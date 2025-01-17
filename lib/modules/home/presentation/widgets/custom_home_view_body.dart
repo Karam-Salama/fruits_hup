@@ -1,14 +1,26 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/widgets/custom_best_celling_grid_view_widget.dart';
+import '../../../../core/cubits/product_cubit/product_cubit.dart';
 import '../../../../core/widgets/custom_search_bar_widget.dart';
 import 'custom_best_celling_header_text_widget.dart';
+import 'custom_best_selling_grid_view_bloc_builder.dart';
 import 'custom_home_app_bar_widget.dart';
 import 'custom_home_featured_list_widget.dart';
 
-class HomeViewBody extends StatelessWidget {
+class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
+
+  @override
+  State<HomeViewBody> createState() => _HomeViewBodyState();
+}
+
+class _HomeViewBodyState extends State<HomeViewBody> {
+  @override
+  void initState() {
+    context.read<ProductCubit>().getBestSellingProducts();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +36,7 @@ class HomeViewBody extends StatelessWidget {
         const SliverToBoxAdapter(child: SizedBox(height: 12)),
         SliverToBoxAdapter(child: BestCellingHeaderText()),
         const SliverToBoxAdapter(child: SizedBox(height: 8)),
-        BestCellingGridView(),
+        BestSellingGridViewBlocBuilder(),
         const SliverToBoxAdapter(child: SizedBox(height: 24)),
       ],
     );
