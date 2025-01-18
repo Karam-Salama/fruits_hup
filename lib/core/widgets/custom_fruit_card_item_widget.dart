@@ -5,6 +5,7 @@ import 'package:fruits_hup/core/utils/app_strings.dart';
 import '../utils/app_assets.dart';
 import '../utils/app_colors.dart';
 import '../utils/app_text_styles.dart';
+import 'custom_network_image.dart';
 
 class FruitCardItem extends StatelessWidget {
   const FruitCardItem({super.key, required this.productEntity});
@@ -27,31 +28,21 @@ class FruitCardItem extends StatelessWidget {
       ),
       child: Stack(
         children: [
-          Positioned(
-            top: 0,
-            right: 0,
-            child: IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.favorite_outline,
-                )),
-          ),
           Positioned.fill(
             child: Column(
               children: [
-                const SizedBox(height: 20),
                 productEntity.imageUrl != null
                     ? Flexible(
-                        child: Image.network(productEntity.imageUrl!),
+                        child: CustomNetworkImage(
+                            imageUrl: productEntity.imageUrl!),
                       )
                     : Container(
                         color: Colors.grey,
                         height: 100,
                         width: 100,
                       ),
-                const SizedBox(height: 24),
                 ListTile(
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 12),
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 8),
                   title: Text(
                     productEntity.name,
                     textAlign: TextAlign.right,
@@ -85,6 +76,15 @@ class FruitCardItem extends StatelessWidget {
                 )
               ],
             ),
+          ),
+          Positioned(
+            top: 0,
+            right: 0,
+            child: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.favorite_outline,
+                )),
           ),
         ],
       ),
