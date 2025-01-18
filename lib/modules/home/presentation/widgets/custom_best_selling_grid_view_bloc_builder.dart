@@ -9,6 +9,7 @@ import 'package:skeletonizer/skeletonizer.dart';
 
 class BestSellingGridViewBlocBuilder extends StatelessWidget {
   const BestSellingGridViewBlocBuilder({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ProductCubit, ProductState>(
@@ -16,7 +17,8 @@ class BestSellingGridViewBlocBuilder extends StatelessWidget {
         if (state is ProductSuccess) {
           return BestCellingGridView(products: state.products);
         } else if (state is ProductFailure) {
-          return SliverToBoxAdapter(child: CustomErrorWidget(text: state.errorMessage));
+          return SliverToBoxAdapter(
+              child: CustomErrorWidget(text: state.errorMessage));
         } else {
           return Skeletonizer.sliver(
             enabled: true,

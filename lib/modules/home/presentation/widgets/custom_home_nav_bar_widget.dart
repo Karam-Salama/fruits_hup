@@ -45,7 +45,7 @@ class HomeNavBarWidget extends StatelessWidget {
             offset: const Offset(0, -2),
           ),
         ],
-        colorBehindNavBar: AppColors.backgroundColor,
+        colorBehindNavBar: AppColors.transparent,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(30),
           topRight: Radius.circular(30),

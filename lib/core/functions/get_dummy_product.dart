@@ -1,37 +1,22 @@
-import 'dart:io';
-
-import 'package:fruits_hup/core/entites/product_entity.dart';
+import '../entites/product_entity.dart';
 
 ProductEntity getDummyProduct() {
   return ProductEntity(
     name: 'Apple',
-    description: 'A red apple',
     code: '123',
-    price: 10,
-    discount: 5,
-    isFeatured: true,
-    imageUrl: 'https://example.com/apple.jpg',
-    unitAmount: 1,
-    expirationMonths: 3,
-    numberOfCalories: 100,
-    isOrganic: true,
+    description: 'Fresh apple',
+    price: 2.5,
     reviews: [],
-    image: File('')
+    expirationsMonths: 6,
+    numberOfCalories: 100,
+    unitAmount: 1,
+    isOrganic: true,
+    isFeatured: true, // Replace with a valid file path or mock it for tests.
+    imageUrl: 'https://cdn-icons-png.flaticon.com/512/25/25231.png',
+    discount: 20,
   );
 }
 
-
 List<ProductEntity> getDummyProducts() {
-  return [
-    getDummyProduct(),
-    getDummyProduct(),
-    getDummyProduct(),
-    getDummyProduct(),
-    getDummyProduct(),
-    getDummyProduct(),
-    getDummyProduct(),
-    getDummyProduct(),
-    getDummyProduct(),
-    getDummyProduct(),
-  ];
+  return List.generate(5, (_) => getDummyProduct());
 }

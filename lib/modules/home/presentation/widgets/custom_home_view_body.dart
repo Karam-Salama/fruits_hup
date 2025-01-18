@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../core/cubits/product_cubit/product_cubit.dart';
 import '../../../../core/widgets/custom_search_bar_widget.dart';
 import 'custom_best_celling_header_text_widget.dart';
@@ -16,12 +15,11 @@ class HomeViewBody extends StatefulWidget {
 }
 
 class _HomeViewBodyState extends State<HomeViewBody> {
-  @override
+ @override
   void initState() {
-    context.read<ProductCubit>().getBestSellingProducts();
+    context.read<ProductCubit>().getBestSellingroducts();
     super.initState();
   }
-
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(

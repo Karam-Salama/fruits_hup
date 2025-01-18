@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fruits_hup/core/entites/product_entity.dart';
 import 'package:fruits_hup/core/utils/app_strings.dart';
-
 import '../utils/app_assets.dart';
 import '../utils/app_colors.dart';
 import '../utils/app_text_styles.dart';
 
 class FruitCardItem extends StatelessWidget {
-  const FruitCardItem({super.key});
+  const FruitCardItem({super.key, required this.productEntity});
 
+  final ProductEntity productEntity;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,55 +28,61 @@ class FruitCardItem extends StatelessWidget {
       child: Stack(
         children: [
           Positioned(
-            top: 15,
-            right: 15,
-            child: InkWell(
-              onTap: () {},
-              child: SvgPicture.asset(Assets.assetsIconsHeart),
-            ),
+            top: 0,
+            right: 0,
+            child: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.favorite_outline,
+                )),
           ),
           Positioned.fill(
             child: Column(
               children: [
                 const SizedBox(height: 20),
-                Container(
-                  width: 100,
-                  height: 80,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(Assets.assetsIconsWatermelon),
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 15),
+                productEntity.imageUrl != null
+                    ? Flexible(
+                        child: Image.network(productEntity.imageUrl!),
+                      )
+                    : Container(
+                        color: Colors.grey,
+                        height: 100,
+                        width: 100,
+                      ),
+                const SizedBox(height: 24),
                 ListTile(
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 12),
                   title: Text(
-                    AppStrings.watermelon,
+                    productEntity.name,
+                    textAlign: TextAlign.right,
                     style: AppTextStyle.Cairo600style13.copyWith(fontSize: 15),
                   ),
-                  subtitle: Text(
-                    AppStrings.watermelonPrice,
-                    style: AppTextStyle.Cairo600style13.copyWith(
-                      color: const Color(0xffF4A91F),
-                      fontSize: 10,
-                    ),
-                  ),
-                  trailing: Transform.translate(
-                    offset: const Offset(-10, 0),
-                    child: InkWell(
-                      onTap: () {},
-                      child: Container(
-                        padding: const EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                          color: AppColors.primaryColor,
-                          shape: BoxShape.circle,
+                  subtitle: Text.rich(
+                    TextSpan(
+                      children: [
+                        TextSpan(
+                            text: '${productEntity.price}جنية',
+                            style: AppTextStyle.Cairo600style10),
+                        TextSpan(
+                          text: AppStrings.kilo,
+                          style: AppTextStyle.Cairo600style10,
                         ),
-                        child: SvgPicture.asset(Assets.assetsIconsAdd),
+                      ],
+                    ),
+                    textAlign: TextAlign.right,
+                  ),
+                  trailing: InkWell(
+                    onTap: () {},
+                    child: Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: AppColors.primaryColor,
+                        shape: BoxShape.circle,
                       ),
+                      child: SvgPicture.asset(Assets.assetsIconsAdd),
                     ),
                   ),
-                ),
+                )
               ],
             ),
           ),

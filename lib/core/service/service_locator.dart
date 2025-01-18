@@ -27,5 +27,5 @@ void setUpServiceLocator() {
   );
 
   //! Home
-  getIt.registerSingleton<ProductRepo>(ProductReposImplementation(databaseService: getIt<DatabaseService>()));
+  getIt.registerSingleton<ProductRepo>(ProductReposImplementation(getIt<DatabaseService>()));
 }
