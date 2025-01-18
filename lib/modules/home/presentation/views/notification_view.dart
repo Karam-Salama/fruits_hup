@@ -17,7 +17,7 @@ class NotificationView extends StatelessWidget {
           slivers: [
             const SliverToBoxAdapter(child: SizedBox(height: 40)),
             SliverToBoxAdapter(
-              child: CustomHomeBar(
+              child: CustomAppBar(
                 title: AppStrings.notifications,
                 leading: IconButton(
                   onPressed: () => Navigator.pop(context),

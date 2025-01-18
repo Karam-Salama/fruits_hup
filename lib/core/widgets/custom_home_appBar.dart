@@ -4,12 +4,12 @@ import 'package:fruits_hup/core/utils/app_assets.dart';
 import 'package:fruits_hup/core/utils/app_colors.dart';
 import '../../../../core/utils/app_text_styles.dart';
 
-class CustomHomeBar extends StatelessWidget {
+class CustomAppBar extends StatelessWidget {
   final Widget? leading;
   final String? title;
   final Widget? trailing;
 
-  const CustomHomeBar({
+  const CustomAppBar({
     Key? key,
     this.leading,
     this.title,

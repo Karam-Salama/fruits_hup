@@ -15,11 +15,12 @@ class HomeViewBody extends StatefulWidget {
 }
 
 class _HomeViewBodyState extends State<HomeViewBody> {
- @override
+  @override
   void initState() {
     context.read<ProductCubit>().getBestSellingroducts();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(

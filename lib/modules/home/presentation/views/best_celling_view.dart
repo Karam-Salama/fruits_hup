@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/utils/app_strings.dart';
-import '../../../../core/widgets/custom_home_appBar.dart';
+import '../../../../core/cubits/product_cubit/product_cubit.dart';
+import '../../../../core/repos/products_repos/product_repo.dart';
+import '../../../../core/service/service_locator.dart';
+
+import '../widgets/custom_best_celling_body.dart';
 
 class BestCellingView extends StatelessWidget {
   const BestCellingView({super.key});
@@ -10,25 +14,9 @@ class BestCellingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: CustomScrollView(
-          physics: const BouncingScrollPhysics(),
-          slivers: [
-            const SliverToBoxAdapter(child: SizedBox(height: 40)),
-            SliverToBoxAdapter(
-              child: CustomHomeBar(
-                title: AppStrings.mostSold,
-                leading: IconButton(
-                  onPressed: () => Navigator.pop(context),
-                  icon: Icon(Icons.arrow_back_ios_new_rounded),
-                ),
-              ),
-            ),
-            const SliverToBoxAdapter(child: SizedBox(height: 12)),
-          ],
-        ),
-      ),
+    return  BlocProvider(
+      create: (context) => ProductCubit(getIt.get<ProductRepo>()),
+      child: const BestCellingBody(),
     );
   }
 }

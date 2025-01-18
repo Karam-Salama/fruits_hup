@@ -16,7 +16,7 @@ class SearchView extends StatelessWidget {
         slivers: [
           const SliverToBoxAdapter(child: SizedBox(height: 60)),
           SliverToBoxAdapter(
-            child: CustomHomeBar(
+            child: CustomAppBar(
               title: AppStrings.searching,
               leading: IconButton(
                 onPressed: () => Navigator.pop(context),
