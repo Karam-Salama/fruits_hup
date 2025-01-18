@@ -41,4 +41,23 @@ abstract class AppTextStyle {
     fontSize: 16,
     color: AppColors.greyColor,
   );
+  static final Cairo700style18 = const TextStyle(
+    fontFamily: 'Cairo',
+    fontWeight: FontWeight.w600,
+    fontSize: 18,
+    color: AppColors.blackColor,
+  );
+  static final Cairo700style13 = const TextStyle(
+    fontFamily: 'Cairo',
+    fontWeight: FontWeight.w700,
+    fontSize: 13,
+    color: AppColors.primaryColor,
+  );
+
+  static final Cairo600style10 = const TextStyle(
+    fontFamily: 'Cairo',
+    fontWeight: FontWeight.w600,
+    fontSize: 10,
+    color: AppColors.orangeColor,
+  );
 }

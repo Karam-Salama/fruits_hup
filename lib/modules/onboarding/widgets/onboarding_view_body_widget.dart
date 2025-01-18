@@ -28,6 +28,15 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
   var currentPage = 0;
 
   @override
+/*************  ✨ Codeium Command ⭐  *************/
+/// Initializes the state of the `_OnboardingViewBodyState`.
+///
+/// Sets up a `PageController` to manage the page view. Adds a listener to
+/// update the `currentPage` variable whenever the page changes, and calls
+/// `setState` to update the UI accordingly. Calls `super.initState()` to
+/// ensure that the inherited initialization logic is executed.
+
+/******  024a14f9-2f8e-419e-a7f3-1e34e8724771  *******/
   void initState() {
     pageController = PageController();
     pageController.addListener(() {

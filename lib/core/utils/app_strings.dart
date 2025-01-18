@@ -44,7 +44,17 @@ abstract class AppStrings {
   static const String passwordChanged = "تم تغيير الباسورد بنجاح";
 
   // home screen
-  static const String home = "الرئيسية";
+  static const String goodMorning = "صباح الخير !..";
+  static const String goodAfternoon = "مساء الخير";
+  static const String search = "ابحث عن...";
+  static const String offers = "عروض العيد";
+  static const String discount = "خصم 25%";
+  static const String buyNow = "تسوق الان";
+  static const String mostSold = "الاكثر مبيعا";
+  static const String searching = "البحث";
+  static const String notifications = "الاشعارات";
+  static const String more = "المزيد";
+  static const String kilo = " / الكيلو";
 }
 
 class FirebaseCollectionName {}

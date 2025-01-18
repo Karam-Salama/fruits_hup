@@ -5,7 +5,7 @@ import 'package:fruits_hup/modules/splash/views/splash_view.dart';
 import '../../modules/auth/presentation/views/forget_password_view.dart';
 
 import '../../modules/auth/presentation/views/signUp_view.dart';
-import '../../modules/home/presentation/views/home_view.dart';
+import '../../modules/home/presentation/views/main_view.dart';
 import '../../modules/onboarding/views/onboarding_view.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
@@ -21,8 +21,9 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case ForgetPasswordView.routeName:
       return MaterialPageRoute(
           builder: (context) => const ForgetPasswordView());
-    case HomeView.routeName:
-      return MaterialPageRoute(builder: (context) => const HomeView());
+    case MainView.routeName:
+      return MaterialPageRoute(builder: (context) => const MainView());
+
     default:
       return MaterialPageRoute(builder: (context) => const Scaffold());
   }

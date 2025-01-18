@@ -13,4 +13,4 @@ void buildCustomDialog(BuildContext context, CustomDialog dialog) {
       isScrollControlled: true,
       builder: (context) => dialog,
     );
-  }
+}

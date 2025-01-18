@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:fruits_hup/modules/home/presentation/views/home_view.dart';
+import 'package:fruits_hup/modules/home/presentation/views/main_view.dart';
 
 import '../../../core/database/cache/cache_helper.dart';
 import '../../../core/functions/navigation.dart';
@@ -26,7 +26,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
       FirebaseAuth.instance.currentUser == null
           ? delayedNavigate(SignInView.routeName)
           : FirebaseAuth.instance.currentUser!.emailVerified == true
-              ? delayedNavigate(HomeView.routeName)
+              ? delayedNavigate(MainView.routeName)
               : delayedNavigate(SignInView.routeName);
     } else {
       delayedNavigate(OnboardingView.routeName);
