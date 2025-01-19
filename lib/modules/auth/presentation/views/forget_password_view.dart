@@ -15,8 +15,10 @@ class ForgetPasswordView extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar(
         title: AppStrings.forgottingPassword,
+        leading: SizedBox(),
         icon: Icon(Icons.arrow_back_ios_new_rounded),
       ),
+
       body: BlocProvider(
         create: (context) => ResetPasswordCubit(getIt<AuthRepo>()),
         child: ForgetPasswordBody(),

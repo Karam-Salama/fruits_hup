@@ -168,4 +168,8 @@ class Assets {
   /// Assets for assetsIconsPersonActiveIcon
   /// assets/icons/person_active_icon.svg
   static const String assetsIconsPersonActiveIcon = "assets/icons/person_active.svg";
+
+  /// Assets for assetsIconsData
+  /// assets/icons/data.svg
+  static const String assetsIconsData = "assets/images/data.svg";
 }
