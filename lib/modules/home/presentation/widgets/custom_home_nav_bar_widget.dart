@@ -5,7 +5,7 @@ import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import '../../../../core/utils/app_assets.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../cart/presentation/views/cart_view.dart';
-import '../../../category/presentation/views/category_view.dart';
+import '../../../category/presentation/views/products_view.dart';
 import '../../../setting/presentation/views/setting_view.dart';
 import '../views/best_celling_view.dart';
 import '../views/notification_view.dart';
@@ -57,7 +57,7 @@ class HomeNavBarWidget extends StatelessWidget {
   List<Widget> _buildScreens() {
     return [
       HomeView(),
-      const CategoryView(),
+      const ProductsView(),
       const CartView(),
       const SettingView(),
     ];

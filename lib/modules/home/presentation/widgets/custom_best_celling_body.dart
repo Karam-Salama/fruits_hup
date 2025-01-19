@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruits_hup/core/utils/app_strings.dart';
 
 import '../../../../core/cubits/product_cubit/product_cubit.dart';
 import 'custom_best_celling_app_bar.dart';
@@ -27,7 +28,9 @@ class _BestCellingBodyState extends State<BestCellingBody> {
           physics: const BouncingScrollPhysics(),
           slivers: [
             const SliverToBoxAdapter(child: SizedBox(height: 40)),
-            SliverToBoxAdapter(child: CustomBestCellingAppBar()),
+            SliverToBoxAdapter(
+                child: CustomBestCellingAppBar(
+                    title: AppStrings.mostSold, isVisible: true)),
             const SliverToBoxAdapter(child: SizedBox(height: 12)),
             BestSellingGridViewBlocBuilder(),
             const SliverToBoxAdapter(child: SizedBox(height: 24)),

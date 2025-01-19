@@ -21,6 +21,7 @@ class SignupView extends StatelessWidget {
         onPressed: () {
           customReplacementNavigate(context, SignInView.routeName);
         },
+        leading: SizedBox(),
       ),
       body: BlocProvider(
         create: (context) => SignUpCubit(getIt<AuthRepo>()),
