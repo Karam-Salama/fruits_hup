@@ -57,6 +57,7 @@ abstract class AppStrings {
   static const String kilo = " / الكيلو";
   static const String results = "نتائج";
   static const String products = "المنتجات";
+  static const String cart = "السله";
 }
 
 class FirebaseCollectionName {}

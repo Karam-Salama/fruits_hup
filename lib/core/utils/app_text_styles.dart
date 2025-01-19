@@ -60,4 +60,6 @@ abstract class AppTextStyle {
     fontSize: 10,
     color: AppColors.orangeColor,
   );
+
+  
 }
