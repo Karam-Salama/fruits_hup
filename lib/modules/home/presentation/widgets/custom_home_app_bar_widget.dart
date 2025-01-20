@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fruits_hup/core/utils/app_assets.dart';
@@ -29,11 +28,11 @@ class CustomHomeAppBarWidget extends StatelessWidget {
       trailing: InkWell(
         onTap: () {
           PersistentNavBarNavigator.pushNewScreen(
-        context,
-        screen: NotificationView(),
-        withNavBar: true,
-        pageTransitionAnimation: PageTransitionAnimation.cupertino,
-    );
+            context,
+            screen: NotificationView(),
+            withNavBar: true,
+            pageTransitionAnimation: PageTransitionAnimation.cupertino,
+          );
         },
         child: Container(
           padding: const EdgeInsets.all(12),
@@ -46,4 +45,4 @@ class CustomHomeAppBarWidget extends StatelessWidget {
       ),
     );
   }
-}  
+}
