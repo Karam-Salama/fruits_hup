@@ -59,6 +59,10 @@ abstract class AppStrings {
   static const String products = "المنتجات";
   static const String cart = "السله";
   static const String shipping = "الشحن";
+  static const String address = 'العنوان';
+  static const String payment = "الدفع";
+  static const String reviews = "المراجعه";
+  static const String next = "التالي";
 }
 
 class FirebaseCollectionName {}

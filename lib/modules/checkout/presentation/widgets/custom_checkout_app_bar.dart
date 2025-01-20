@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/custom_home_appBar.dart';
 
-class CustomCheckoutButton extends StatelessWidget {
-  const CustomCheckoutButton({super.key, required this.title});
+class CustomCheckoutAppBar extends StatelessWidget {
+  const CustomCheckoutAppBar({super.key, required this.title});
   final String title;
 
   @override
