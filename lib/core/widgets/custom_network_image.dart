@@ -11,6 +11,8 @@ class CustomNetworkImage extends StatelessWidget {
       borderRadius: const BorderRadius.only(
         topLeft: Radius.circular(16),
         topRight: Radius.circular(16),
+        bottomLeft: Radius.circular(16),
+        bottomRight: Radius.circular(16),
       ),
       child: Image.network(
         imageUrl,

@@ -1,7 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:equatable/equatable.dart';
+
 import 'package:fruits_hup/core/entites/product_entity.dart';
 
-class CartItemEntity {
+class CartItemEntity extends Equatable {
   final ProductEntity productEntity;
   int count;
 
@@ -25,4 +27,8 @@ class CartItemEntity {
   decreaseCount() {
     if (count > 0) count--;
   }
+
+  
+  @override
+  List<Object?> get props => [productEntity];
 }

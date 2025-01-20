@@ -12,7 +12,9 @@ class CartItemsList extends StatelessWidget {
     return SliverList.separated(
       itemCount: cartItems.length,
       separatorBuilder: (context, index) => CustomDivider(),
-      itemBuilder: (context, index) => CartItem(cartItemEntity: cartItems[index],),
+      itemBuilder: (context, index) => CartItem(
+        cartItemEntity: cartItems[index],
+      ),
     );
   }
 }

@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruits_hup/modules/cart/presentation/cubits/cart_item_cubit/cubit/cart_item_cubit.dart';
 
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_text_styles.dart';
+import '../../domain/entities/cart_item_entity.dart';
 
 class CartItemActionButtons extends StatelessWidget {
-  const CartItemActionButtons({super.key});
-
+  const CartItemActionButtons({super.key, required this.cartItemEntity});
+  final CartItemEntity cartItemEntity;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -14,12 +17,15 @@ class CartItemActionButtons extends StatelessWidget {
           iconColor: AppColors.whiteColor,
           icon: Icons.add,
           color: AppColors.primaryColor,
-          onPressed: () {},
+          onPressed: () {
+            cartItemEntity.increaseCount();
+            context.read<CartItemCubit>().updateCartItem(cartItemEntity);
+          },
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Text(
-            "3",
+            cartItemEntity.count.toString(),
             textAlign: TextAlign.center,
             style: AppTextStyle.Cairo700style16.copyWith(
                 color: AppColors.blackColor),
@@ -29,7 +35,10 @@ class CartItemActionButtons extends StatelessWidget {
           iconColor: Colors.grey,
           icon: Icons.remove,
           color: const Color(0xFFF3F5F7),
-          onPressed: () {},
+          onPressed: () {
+            cartItemEntity.decreaseCount();
+            context.read<CartItemCubit>().updateCartItem(cartItemEntity);
+          },
         )
       ],
     );
@@ -37,12 +46,13 @@ class CartItemActionButtons extends StatelessWidget {
 }
 
 class CartItemActionButton extends StatelessWidget {
-  const CartItemActionButton(
-      {super.key,
-      required this.icon,
-      required this.color,
-      required this.onPressed,
-      required this.iconColor});
+  const CartItemActionButton({
+    super.key,
+    required this.icon,
+    required this.color,
+    required this.onPressed,
+    required this.iconColor,
+  });
 
   final IconData icon;
   final Color iconColor;

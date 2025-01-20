@@ -13,10 +13,7 @@ class CustomCartAppBar extends StatelessWidget {
     return CustomAppBar(
       title: title,
       isVisibleTrailing: false,
-      leading: IconButton(
-        onPressed: () => Navigator.pop(context),
-        icon: Icon(Icons.arrow_back_ios_new_rounded),
-      ),
+      isVisibleLeading: false,
     );
   }
 }
