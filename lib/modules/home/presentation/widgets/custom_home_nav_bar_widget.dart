@@ -24,6 +24,7 @@ class HomeNavBarWidget extends StatelessWidget {
       screens: _buildScreens(),
       items: _navBarsItems(),
       controller: _controller,
+      stateManagement: true,
       navBarStyle: NavBarStyle.style12,
       animationSettings: const NavBarAnimationSettings(
         navBarItemAnimation: ItemAnimationSettings(

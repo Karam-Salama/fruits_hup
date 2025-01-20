@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fruits_hup/core/entites/product_entity.dart';
 import 'package:fruits_hup/core/utils/app_strings.dart';
+import 'package:fruits_hup/modules/cart/presentation/cubits/cart_cubit/cart_cubit.dart';
 import '../utils/app_assets.dart';
 import '../utils/app_colors.dart';
 import '../utils/app_text_styles.dart';
@@ -63,7 +65,9 @@ class FruitCardItem extends StatelessWidget {
                     textAlign: TextAlign.right,
                   ),
                   trailing: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      context.read<CartCubit>().addProduct(productEntity);
+                    },
                     child: Container(
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(

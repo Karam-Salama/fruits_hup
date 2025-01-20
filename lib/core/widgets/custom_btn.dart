@@ -15,6 +15,7 @@ class CustomButton extends StatelessWidget {
     required this.onPressed,
     required this.style,
     required this.mainAxisAlignment,
+    this.padding,
     this.imageIcon,
   });
 
@@ -25,33 +26,37 @@ class CustomButton extends StatelessWidget {
   final String? imageIcon;
   TextStyle? style;
   MainAxisAlignment mainAxisAlignment;
+  double? padding;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      height: kHeightBottom,
-      child: ElevatedButton(
-        onPressed: onPressed,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: backGroundColor ?? AppColors.primaryColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(kRaduisBorder),
-            side: BorderSide(color: borderColor ?? Colors.transparent),
-          ),
-        ),
-        child: Row(
-          mainAxisAlignment: mainAxisAlignment,
-          children: [
-            if (imageIcon != null) ...[
-              SvgPicture.asset(imageIcon!),
-              const SizedBox(width: 53),
-            ],
-            Text(
-              text!,
-              style: style,
+    return Padding(
+      padding: EdgeInsets.all(padding ?? 0),
+      child: SizedBox(
+        width: double.infinity,
+        height: kHeightBottom,
+        child: ElevatedButton(
+          onPressed: onPressed,
+          style: ElevatedButton.styleFrom(
+            backgroundColor: backGroundColor ?? AppColors.primaryColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(kRaduisBorder),
+              side: BorderSide(color: borderColor ?? Colors.transparent),
             ),
-          ],
+          ),
+          child: Row(
+            mainAxisAlignment: mainAxisAlignment,
+            children: [
+              if (imageIcon != null) ...[
+                SvgPicture.asset(imageIcon!),
+                const SizedBox(width: 53),
+              ],
+              Text(
+                text!,
+                style: style,
+              ),
+            ],
+          ),
         ),
       ),
     );

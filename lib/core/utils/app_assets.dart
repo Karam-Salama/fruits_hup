@@ -172,4 +172,8 @@ class Assets {
   /// Assets for assetsIconsData
   /// assets/icons/data.svg
   static const String assetsIconsData = "assets/images/data.svg";
+
+  /// Assets for assetsIconsDataActiveIcon
+  /// assets/icons/data_active_icon.svg
+  static const String assetsIconsTrashIcon = "assets/images/trash.svg";
 }
