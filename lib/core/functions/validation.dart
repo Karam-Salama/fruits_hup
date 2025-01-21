@@ -34,9 +34,9 @@ class Validation {
 
   static String? validatePhone(String? value) {
     if (value == null || value.isEmpty) {
-      return 'This Field is required';
+      return 'هذا الحقل مطلوب';
     } else if (!RegExp(r'^(010|011|012|015)[0-9]{8}$').hasMatch(value)) {
-      return 'Please Enter valid Phone';
+      return 'من فضلك ادخل رقم الهاتف صحيح';
     }
     return null;
   }

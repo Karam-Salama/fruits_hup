@@ -17,6 +17,7 @@ class _ShippingSectionState extends State<ShippingSection>
   Widget build(BuildContext context) {
     super.build(context);
     var orderEntity = context.read<OrderEntity>();
+
     return Column(
       children: [
         const SizedBox(height: 33),
@@ -29,7 +30,7 @@ class _ShippingSectionState extends State<ShippingSection>
           isSelected: selectedIndex == 0,
           title: 'الدفع عند الاستلام',
           subTitle: 'التسليم من المكان',
-          price: (orderEntity.cartEntity.calculateTotalPrice() + 40).toString(),
+          price: (orderEntity.cartEntity.calculateTotalPrice() + 30 ).toString(),
         ),
         const SizedBox(
           height: 16,

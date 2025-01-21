@@ -22,7 +22,7 @@ class CheckoutStepsPageView extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16),
       child: SizedBox(
-        height: 500,
+        height: 550,
         child: PageView.builder(
           controller: pageController,
           physics: const NeverScrollableScrollPhysics(),

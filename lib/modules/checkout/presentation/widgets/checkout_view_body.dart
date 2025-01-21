@@ -19,8 +19,7 @@ class CheckoutViewBody extends StatefulWidget {
 
 class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   late PageController pageController;
-  ValueNotifier<AutovalidateMode> valueNotifier =
-      ValueNotifier(AutovalidateMode.disabled);
+  ValueNotifier<AutovalidateMode> valueNotifier = ValueNotifier(AutovalidateMode.disabled);
   @override
   void initState() {
     pageController = PageController();
@@ -43,62 +42,65 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      physics: BouncingScrollPhysics(),
-      slivers: [
-        const SliverToBoxAdapter(child: SizedBox(height: 30)),
-        //! AppBar
-        SliverToBoxAdapter(
-          child: CustomCheckoutAppBar(
-              title: getCurrentPageTitle(currentPageIndex)),
-        ),
-        const SliverToBoxAdapter(child: SizedBox(height: 16)),
-        //! Checkout Steps
-        SliverToBoxAdapter(
-          child: CheckoutSteps(
-            onTap: (value) {
-              if (context.read<OrderEntity>().payWithCash != null) {
-                pageController.animateToPage(value,
-                    duration: Duration(milliseconds: 300),
-                    curve: Curves.easeIn);
-              } else {
-                showBar(context, AppStrings.selectPaymentMethod);
-              }
-            },
-            pageController: pageController,
-            currentPageIndex: currentPageIndex,
+    return Stack(children: [
+      CustomScrollView(
+        physics: BouncingScrollPhysics(),
+        slivers: [
+          const SliverToBoxAdapter(child: SizedBox(height: 30)),
+          //! AppBar
+          SliverToBoxAdapter(
+            child: CustomCheckoutAppBar(
+                title: getCurrentPageTitle(currentPageIndex)),
           ),
-        ),
-        const SliverToBoxAdapter(child: SizedBox(height: 32)),
-        //! Checkout page view
-        SliverToBoxAdapter(
-          child: CheckoutStepsPageView(
-            valueListenable: valueNotifier,
-            pageController: pageController,
-            formKey: _formKey,
+          const SliverToBoxAdapter(child: SizedBox(height: 16)),
+          //! Checkout Steps
+          SliverToBoxAdapter(
+            child: CheckoutSteps(
+              onTap: (value) {
+                if (context.read<OrderEntity>().payWithCash != null) {
+                  pageController.animateToPage(value,
+                      duration: Duration(milliseconds: 300),
+                      curve: Curves.easeIn);
+                } else {
+                  showBar(context, AppStrings.selectPaymentMethod);
+                }
+              },
+              pageController: pageController,
+              currentPageIndex: currentPageIndex,
+            ),
           ),
-        ),
-        const SliverToBoxAdapter(child: SizedBox(height: 32)),
-        //! Checkout Next button
-        SliverToBoxAdapter(
-            child: CustomButton(
+          const SliverToBoxAdapter(child: SizedBox(height: 32)),
+          //! Checkout page view
+          SliverToBoxAdapter(
+            child: CheckoutStepsPageView(
+              valueListenable: valueNotifier,
+              pageController: pageController,
+              formKey: _formKey,
+            ),
+          ),
+          const SliverToBoxAdapter(child: SizedBox(height: 32)),
+        ],
+      ),
+      //! Checkout Next button
+      Positioned(
+        left: 16,
+        right: 16,
+        bottom: MediaQuery.sizeOf(context).height * .07,
+        child: CustomButton(
           mainAxisAlignment: MainAxisAlignment.center,
           onPressed: () {
-            if (context.read<OrderEntity>().payWithCash != null) {
-              pageController.nextPage(
-                duration: const Duration(milliseconds: 500),
-                curve: Curves.easeIn,
-              );
-            } else {
-              showBar(context, AppStrings.selectPaymentMethod);
+            if (currentPageIndex == 0) {
+              _handleShippingSectionValidation(context);
+            } else if (currentPageIndex == 1) {
+              _handleAddressValidation();
             }
           },
           text: getNextButtonText(currentPageIndex),
           style: AppTextStyle.Cairo700style16,
           padding: 16,
-        )),
-      ],
-    );
+        ),
+      )
+    ]);
   }
 
   String getCurrentPageTitle(int currentPageIndex) {
@@ -126,4 +128,31 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
         return AppStrings.next;
     }
   }
+
+  void _handleShippingSectionValidation(BuildContext context) {
+    if (context.read<OrderEntity>().payWithCash != null) {
+      pageController.animateToPage(
+        currentPageIndex + 1,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeIn,
+      );
+    } else {
+      showBar(context, AppStrings.selectPaymentMethod);
+    }
+  }
+
+  void _handleAddressValidation() {
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
+      pageController.animateToPage(
+        currentPageIndex + 1,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeIn,
+      );
+    } else {
+      valueNotifier.value = AutovalidateMode.always;
+    }
+  }
+
+  void _processPayment(BuildContext context) {}
 }
