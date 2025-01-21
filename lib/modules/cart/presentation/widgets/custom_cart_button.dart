@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruits_hup/core/utils/app_strings.dart';
 import 'package:fruits_hup/modules/checkout/presentation/views/checkout_view.dart';
+import '../../../../core/functions/build_error_bar.dart';
 import '../../../../core/functions/navigation.dart';
 import '../../../../core/utils/app_text_styles.dart';
 import '../../../../core/widgets/custom_btn.dart';
@@ -17,8 +19,17 @@ class CustomCartButton extends StatelessWidget {
         return CustomButton(
           mainAxisAlignment: MainAxisAlignment.center,
           onPressed: () {
-            CustomPersistentNavBarNavigation(
-                context, const CheckoutView(), false);
+            if (context.read<CartCubit>().cartEntity.cartItems.isNotEmpty) {
+              CustomPersistentNavBarNavigation(
+                context,
+                CheckoutView(
+                  cartEntity: context.read<CartCubit>().cartEntity,
+                ),
+                false,
+              );
+            } else {
+              showBar(context, AppStrings.emptyCart);
+            }
           },
           text:
               "الدفع  ${context.watch<CartCubit>().cartEntity.calculateTotalPrice()} جنيه",

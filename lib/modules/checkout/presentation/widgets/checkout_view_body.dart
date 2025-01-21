@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruits_hup/core/functions/build_error_bar.dart';
 
 import '../../../../core/utils/app_strings.dart';
 import '../../../../core/utils/app_text_styles.dart';
 import '../../../../core/widgets/custom_btn.dart';
+import '../../domain/entities/order_entity.dart';
 import 'checkout_steps.dart';
 import 'checkout_steps_page_view.dart';
 import 'custom_checkout_app_bar.dart';
@@ -54,8 +57,13 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
         SliverToBoxAdapter(
           child: CheckoutSteps(
             onTap: (value) {
-              pageController.animateToPage(value,
-                  duration: Duration(milliseconds: 300), curve: Curves.easeIn);
+              if (context.read<OrderEntity>().payWithCash != null) {
+                pageController.animateToPage(value,
+                    duration: Duration(milliseconds: 300),
+                    curve: Curves.easeIn);
+              } else {
+                showBar(context, AppStrings.selectPaymentMethod);
+              }
             },
             pageController: pageController,
             currentPageIndex: currentPageIndex,
@@ -76,10 +84,14 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
             child: CustomButton(
           mainAxisAlignment: MainAxisAlignment.center,
           onPressed: () {
-            pageController.nextPage(
-              duration: const Duration(milliseconds: 500),
-              curve: Curves.easeIn,
-            );
+            if (context.read<OrderEntity>().payWithCash != null) {
+              pageController.nextPage(
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.easeIn,
+              );
+            } else {
+              showBar(context, AppStrings.selectPaymentMethod);
+            }
           },
           text: getNextButtonText(currentPageIndex),
           style: AppTextStyle.Cairo700style16,

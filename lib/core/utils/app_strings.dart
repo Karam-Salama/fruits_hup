@@ -75,6 +75,8 @@ abstract class AppStrings {
   static const String orderingAddress = 'عنوان التوصيل';
   static const String edit = 'تعديل';
   static const String paymentMethod = 'الدفع عبر paypal';
+  static const String emptyCart = 'السلة فارغة';
+  static const String selectPaymentMethod = 'حدد طريقة الدفع';
 }
 
 class FirebaseCollectionName {}
