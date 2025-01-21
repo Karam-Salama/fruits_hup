@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import 'address_input_section.dart';
 import 'shipping_section.dart';
 
 class CheckoutStepsPageView extends StatelessWidget {
@@ -20,7 +21,7 @@ class CheckoutStepsPageView extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16),
       child: SizedBox(
-        height: 300,
+        height: 500,
         child: PageView.builder(
           controller: pageController,
           physics: const NeverScrollableScrollPhysics(),
@@ -36,8 +37,10 @@ class CheckoutStepsPageView extends StatelessWidget {
   List<Widget> getPages() {
     return [
       const ShippingSection(),
-      const ShippingSection(),
-      const ShippingSection(),
+      AddressInputSection(
+        formKey: formKey,
+        valueListenable: valueListenable,
+      ),
       const ShippingSection(),
     ];
   }

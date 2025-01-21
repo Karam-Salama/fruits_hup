@@ -41,6 +41,5 @@ List<String> getSteps() {
     AppStrings.shipping,
     AppStrings.address,
     AppStrings.payment,
-    AppStrings.reviews,
   ];
 }

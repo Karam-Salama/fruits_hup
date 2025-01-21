@@ -70,7 +70,12 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
         SliverToBoxAdapter(
             child: CustomButton(
           mainAxisAlignment: MainAxisAlignment.center,
-          onPressed: () {},
+          onPressed: () {
+            pageController.nextPage(
+              duration: const Duration(milliseconds: 500),
+              curve: Curves.easeIn,
+            );
+          },
           text: AppStrings.next,
           style: AppTextStyle.Cairo700style16,
           padding: 16,

@@ -31,4 +31,13 @@ class Validation {
     }
     return null;
   }
+
+  static String? validatePhone(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'This Field is required';
+    } else if (!RegExp(r'^(010|011|012|015)[0-9]{8}$').hasMatch(value)) {
+      return 'Please Enter valid Phone';
+    }
+    return null;
+  }
 }

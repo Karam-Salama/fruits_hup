@@ -63,6 +63,11 @@ abstract class AppStrings {
   static const String payment = "الدفع";
   static const String reviews = "المراجعه";
   static const String next = "التالي";
+  static const String city = 'المدينه';
+  static const String area = 'المنطقه';
+  static const String floor = 'رقم الطابق , رقم الشقه ..';
+  static const String phone = 'رقم الهاتف';
+  
 }
 
 class FirebaseCollectionName {}
