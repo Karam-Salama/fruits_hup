@@ -74,7 +74,6 @@ abstract class AppStrings {
   static const String ordering = 'التوصيل  :';
   static const String orderingAddress = 'عنوان التوصيل';
   static const String edit = 'تعديل';
-
   static const String paymentMethod = 'الدفع عبر paypal';
 }
 
