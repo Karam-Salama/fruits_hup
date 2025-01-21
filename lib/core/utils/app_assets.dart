@@ -143,7 +143,8 @@ class Assets {
 
   /// Assets for assetsIconsCartActiveIcon
   /// assets/icons/cart_active_icon.svg
-  static const String assetsIconsCartActiveIcon = "assets/icons/cart_active.svg";
+  static const String assetsIconsCartActiveIcon =
+      "assets/icons/cart_active.svg";
 
   /// Assets for assetsIconsCategory
   /// assets/icons/category.svg
@@ -151,7 +152,8 @@ class Assets {
 
   /// Assets for assetsIconsCategoryActiveIcon
   /// assets/icons/category_active_icon.svg
-  static const String assetsIconsCategoryActiveIcon = "assets/icons/category_active.svg";
+  static const String assetsIconsCategoryActiveIcon =
+      "assets/icons/category_active.svg";
 
   /// Assets for assetsIconsHome
   /// assets/icons/home.svg
@@ -159,15 +161,17 @@ class Assets {
 
   /// Assets for assetsIconsHomeActiveIcon
   /// assets/icons/home_active_icon.svg
-  static const String assetsIconsHomeActiveIcon = "assets/icons/home_active.svg";
+  static const String assetsIconsHomeActiveIcon =
+      "assets/icons/home_active.svg";
 
-    /// Assets for assetsIconsPerson
+  /// Assets for assetsIconsPerson
   /// assets/icons/person.svg
   static const String assetsIconsPerson = "assets/icons/person.svg";
 
   /// Assets for assetsIconsPersonActiveIcon
   /// assets/icons/person_active_icon.svg
-  static const String assetsIconsPersonActiveIcon = "assets/icons/person_active.svg";
+  static const String assetsIconsPersonActiveIcon =
+      "assets/icons/person_active.svg";
 
   /// Assets for assetsIconsData
   /// assets/icons/data.svg
@@ -176,4 +180,11 @@ class Assets {
   /// Assets for assetsIconsDataActiveIcon
   /// assets/icons/data_active_icon.svg
   static const String assetsIconsTrashIcon = "assets/images/trash.svg";
+
+  /// Assets for assetsIconsLocationIcon
+  /// assets/images/imagesLocation.svg
+  static const String assetsIconsLocationIcon =
+      "assets/images/imagesLocation.svg";
+
+  static const String imagesEdit = "assets/images/imagesEdit.svg";
 }

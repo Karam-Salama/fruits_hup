@@ -67,7 +67,15 @@ abstract class AppStrings {
   static const String area = 'المنطقه';
   static const String floor = 'رقم الطابق , رقم الشقه ..';
   static const String phone = 'رقم الهاتف';
-  
+
+  static const String orderSummary = 'ملخص الطلب';
+  static const String subTotal = 'المجموع الفرعي :';
+  static const String total = 'المجموع الكلي :';
+  static const String ordering = 'التوصيل  :';
+  static const String orderingAddress = 'عنوان التوصيل';
+  static const String edit = 'تعديل';
+
+  static const String paymentMethod = 'الدفع عبر paypal';
 }
 
 class FirebaseCollectionName {}

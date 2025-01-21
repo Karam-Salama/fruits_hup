@@ -46,13 +46,17 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
         const SliverToBoxAdapter(child: SizedBox(height: 30)),
         //! AppBar
         SliverToBoxAdapter(
-          child: CustomCheckoutAppBar(title: AppStrings.shipping),
+          child: CustomCheckoutAppBar(
+              title: getCurrentPageTitle(currentPageIndex)),
         ),
         const SliverToBoxAdapter(child: SizedBox(height: 16)),
         //! Checkout Steps
         SliverToBoxAdapter(
           child: CheckoutSteps(
-            onTap: (value) {},
+            onTap: (value) {
+              pageController.animateToPage(value,
+                  duration: Duration(milliseconds: 300), curve: Curves.easeIn);
+            },
             pageController: pageController,
             currentPageIndex: currentPageIndex,
           ),
@@ -67,6 +71,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
           ),
         ),
         const SliverToBoxAdapter(child: SizedBox(height: 32)),
+        //! Checkout Next button
         SliverToBoxAdapter(
             child: CustomButton(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -76,11 +81,37 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
               curve: Curves.easeIn,
             );
           },
-          text: AppStrings.next,
+          text: getNextButtonText(currentPageIndex),
           style: AppTextStyle.Cairo700style16,
           padding: 16,
         )),
       ],
     );
+  }
+
+  String getCurrentPageTitle(int currentPageIndex) {
+    switch (currentPageIndex) {
+      case 0:
+        return AppStrings.shipping;
+      case 1:
+        return AppStrings.address;
+      case 2:
+        return AppStrings.payment;
+      default:
+        return AppStrings.shipping;
+    }
+  }
+
+  String getNextButtonText(int currentPageIndex) {
+    switch (currentPageIndex) {
+      case 0:
+        return AppStrings.next;
+      case 1:
+        return AppStrings.next;
+      case 2:
+        return AppStrings.paymentMethod;
+      default:
+        return AppStrings.next;
+    }
   }
 }

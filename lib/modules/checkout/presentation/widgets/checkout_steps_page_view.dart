@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'address_input_section.dart';
+import 'payment_section.dart';
 import 'shipping_section.dart';
 
 class CheckoutStepsPageView extends StatelessWidget {
@@ -41,7 +42,9 @@ class CheckoutStepsPageView extends StatelessWidget {
         formKey: formKey,
         valueListenable: valueListenable,
       ),
-      const ShippingSection(),
+      PaymentSection(
+        pageController: pageController,
+      ),
     ];
   }
 }
