@@ -1,6 +1,10 @@
+// ignore_for_file: unused_element
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_hup/core/functions/build_error_bar.dart';
+import 'package:fruits_hup/core/utils/app_colors.dart';
+import 'package:fruits_hup/modules/checkout/presentation/manager/cubit/add_order_cubit/add_order_cubit.dart';
 
 import '../../../../core/utils/app_strings.dart';
 import '../../../../core/utils/app_text_styles.dart';
@@ -19,7 +23,8 @@ class CheckoutViewBody extends StatefulWidget {
 
 class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   late PageController pageController;
-  ValueNotifier<AutovalidateMode> valueNotifier = ValueNotifier(AutovalidateMode.disabled);
+  ValueNotifier<AutovalidateMode> valueNotifier =
+      ValueNotifier(AutovalidateMode.disabled);
   @override
   void initState() {
     pageController = PageController();
@@ -42,65 +47,90 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
-      CustomScrollView(
-        physics: BouncingScrollPhysics(),
-        slivers: [
-          const SliverToBoxAdapter(child: SizedBox(height: 30)),
-          //! AppBar
-          SliverToBoxAdapter(
-            child: CustomCheckoutAppBar(
-                title: getCurrentPageTitle(currentPageIndex)),
-          ),
-          const SliverToBoxAdapter(child: SizedBox(height: 16)),
-          //! Checkout Steps
-          SliverToBoxAdapter(
-            child: CheckoutSteps(
-              onTap: (value) {
-                if (context.read<OrderEntity>().payWithCash != null) {
-                  pageController.animateToPage(value,
-                      duration: Duration(milliseconds: 300),
-                      curve: Curves.easeIn);
-                } else {
-                  showBar(context, AppStrings.selectPaymentMethod);
-                }
-              },
-              pageController: pageController,
-              currentPageIndex: currentPageIndex,
+    return Stack(
+      children: [
+        CustomScrollView(
+          physics: BouncingScrollPhysics(),
+          slivers: [
+            const SliverToBoxAdapter(child: SizedBox(height: 30)),
+            //! AppBar
+            SliverToBoxAdapter(
+              child: CustomCheckoutAppBar(
+                  title: getCurrentPageTitle(currentPageIndex)),
             ),
-          ),
-          const SliverToBoxAdapter(child: SizedBox(height: 32)),
-          //! Checkout page view
-          SliverToBoxAdapter(
-            child: CheckoutStepsPageView(
-              valueListenable: valueNotifier,
-              pageController: pageController,
-              formKey: _formKey,
+            const SliverToBoxAdapter(child: SizedBox(height: 16)),
+            //! Checkout Steps
+            SliverToBoxAdapter(
+              child: CheckoutSteps(
+                onTap: (value) {
+                  if (context.read<OrderEntity>().payWithCash != null) {
+                    pageController.animateToPage(value,
+                        duration: Duration(milliseconds: 300),
+                        curve: Curves.easeIn);
+                  } else {
+                    showBar(context, AppStrings.selectPaymentMethod);
+                  }
+                },
+                pageController: pageController,
+                currentPageIndex: currentPageIndex,
+              ),
             ),
-          ),
-          const SliverToBoxAdapter(child: SizedBox(height: 32)),
-        ],
-      ),
-      //! Checkout Next button
-      Positioned(
-        left: 16,
-        right: 16,
-        bottom: MediaQuery.sizeOf(context).height * .07,
-        child: CustomButton(
-          mainAxisAlignment: MainAxisAlignment.center,
-          onPressed: () {
-            if (currentPageIndex == 0) {
-              _handleShippingSectionValidation(context);
-            } else if (currentPageIndex == 1) {
-              _handleAddressValidation();
-            }
-          },
-          text: getNextButtonText(currentPageIndex),
-          style: AppTextStyle.Cairo700style16,
-          padding: 16,
+            const SliverToBoxAdapter(child: SizedBox(height: 32)),
+            //! Checkout page view
+            SliverToBoxAdapter(
+              child: CheckoutStepsPageView(
+                valueListenable: valueNotifier,
+                pageController: pageController,
+                formKey: _formKey,
+              ),
+            ),
+            const SliverToBoxAdapter(child: SizedBox(height: 32)),
+          ],
         ),
-      )
-    ]);
+        //! Checkout Next button
+        Positioned(
+          left: 16,
+          right: 16,
+          bottom: MediaQuery.sizeOf(context).height * .07,
+          child: BlocConsumer<AddOrderCubit, AddOrderState>(
+            listener: (context, state) {
+              if (state is AddOrderSuccess) {
+                showBar(context, 'Order added successfully');
+                Navigator.pop(context);
+              } else if (state is AddOrderFailure) {
+                showBar(context, '${state.errorMessage}');
+              }
+            },
+            builder: (context, state) {
+              return state is AddOrderLoading
+                  ? Center(
+                      child: CircularProgressIndicator(
+                        color: AppColors.primaryColor,
+                      ),
+                    )
+                  : CustomButton(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      onPressed: () {
+                        if (currentPageIndex == 0) {
+                          _handleShippingSectionValidation(context);
+                        } else if (currentPageIndex == 1) {
+                          _handleAddressValidation();
+                        } else {
+                          var orderEntity = context.read<OrderEntity>();
+                          context
+                              .read<AddOrderCubit>()
+                              .addOrder(order: orderEntity);
+                        }
+                      },
+                      text: getNextButtonText(currentPageIndex),
+                      style: AppTextStyle.Cairo700style16,
+                      padding: 16,
+                    );
+            },
+          ),
+        )
+      ],
+    );
   }
 
   String getCurrentPageTitle(int currentPageIndex) {

@@ -6,6 +6,8 @@ import 'package:fruits_hup/modules/auth/domain/repos/auth_repo.dart';
 import '../database/cache/cache_helper.dart';
 import 'package:get_it/get_it.dart';
 
+import '../repos/orders_repos/order_repo.dart';
+import '../repos/orders_repos/orders_repos_implementation.dart';
 import '../repos/products_repos/product_repo.dart';
 import '../repos/products_repos/products_repos_implementation.dart';
 import 'service_firebase_firestore.dart';
@@ -27,5 +29,10 @@ void setUpServiceLocator() {
   );
 
   //! Home
-  getIt.registerSingleton<ProductRepo>(ProductReposImplementation(getIt<DatabaseService>()));
+  getIt.registerSingleton<ProductRepo>(
+      ProductReposImplementation(getIt<DatabaseService>()));
+
+  //! Orders
+  getIt.registerSingleton<OrderRepo>(
+      OrdersReposImplementation(firestoreService: getIt<DatabaseService>()));
 }
