@@ -1,9 +1,14 @@
 // ignore_for_file: unused_element
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
 import 'package:fruits_hup/core/functions/build_error_bar.dart';
 import 'package:fruits_hup/core/utils/app_colors.dart';
+import 'package:fruits_hup/core/utils/app_keys.dart';
+import 'package:fruits_hup/modules/checkout/domain/entities/payment_entity.dart';
 import 'package:fruits_hup/modules/checkout/presentation/manager/cubit/add_order_cubit/add_order_cubit.dart';
 
 import '../../../../core/utils/app_strings.dart';
@@ -116,10 +121,11 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
                         } else if (currentPageIndex == 1) {
                           _handleAddressValidation();
                         } else {
-                          var orderEntity = context.read<OrderEntity>();
-                          context
-                              .read<AddOrderCubit>()
-                              .addOrder(order: orderEntity);
+                          _handlePaymentProcess(context);
+                          // var orderEntity = context.read<OrderEntity>();
+                          // context
+                          //     .read<AddOrderCubit>()
+                          //     .addOrder(order: orderEntity);
                         }
                       },
                       text: getNextButtonText(currentPageIndex),
@@ -184,5 +190,39 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
     }
   }
 
-  void _processPayment(BuildContext context) {}
+  void _handlePaymentProcess(BuildContext context) {
+    var orderEntity = context.read<OrderEntity>();
+
+    PaypalPaymentEntity paypalPaymentEntity =
+        PaypalPaymentEntity.fromEntity(orderEntity);
+
+    log(paypalPaymentEntity.toJson().toString());
+
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (BuildContext context) => PaypalCheckoutView(
+        sandboxMode: true,
+        clientId: kPaypalClientId,
+        secretKey: kPaypalSecretKey,
+        transactions: [
+          paypalPaymentEntity.toJson(),
+        ],
+        note: "Contact us for any questions on your order.",
+        onSuccess: (Map params) async {
+          log("onSuccess: $params");
+          showBar(context, AppStrings.paymentSuccess);
+          Navigator.pop(context);
+        },
+        onError: (error) {
+          log("onError: $error");
+          showBar(context, AppStrings.paymentFailed);
+          Navigator.pop(context);
+        },
+        onCancel: () {
+          log('cancelled:');
+          showBar(context, AppStrings.paymentCancelled);
+          Navigator.pop(context);
+        },
+      ),
+    ));
+  }
 }
