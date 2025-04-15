@@ -58,6 +58,28 @@ abstract class AppStrings {
   static const String results = "نتائج";
   static const String products = "المنتجات";
   static const String cart = "السله";
+  static const String shipping = "الشحن";
+  static const String address = 'العنوان';
+  static const String payment = "الدفع";
+  static const String reviews = "المراجعه";
+  static const String next = "التالي";
+  static const String city = 'المدينه';
+  static const String area = 'المنطقه';
+  static const String floor = 'رقم الطابق , رقم الشقه ..';
+  static const String phone = 'رقم الهاتف';
+
+  static const String orderSummary = 'ملخص الطلب';
+  static const String subTotal = 'المجموع الفرعي :';
+  static const String total = 'المجموع الكلي :';
+  static const String ordering = 'التوصيل  :';
+  static const String orderingAddress = 'عنوان التوصيل';
+  static const String edit = 'تعديل';
+  static const String paymentMethod = 'الدفع عبر paypal';
+  static const String emptyCart = 'السلة فارغة';
+  static const String selectPaymentMethod = 'حدد طريقة الدفع';
+  static const String paymentFailed = 'فشل الدفع';
+  static const String paymentCancelled = 'تم إلغاء الدفع';
+  static const String paymentSuccess = 'تم الدفع بنجاح';
 }
 
 class FirebaseCollectionName {}

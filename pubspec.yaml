@@ -48,6 +48,8 @@ dependencies:
   flutter_svg_provider: ^1.0.7
   persistent_bottom_nav_bar: ^6.2.1
   skeletonizer: ^1.4.3
+  provider: ^6.1.2
+  flutter_paypal_payment: ^1.0.8
 
 
 #==================================  Dev  Dependencies  Section  ==============================
