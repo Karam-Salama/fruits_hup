@@ -67,17 +67,32 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
             //! Checkout Steps
             SliverToBoxAdapter(
               child: CheckoutSteps(
-                onTap: (value) {
-                  if (context.read<OrderEntity>().payWithCash != null) {
-                    pageController.animateToPage(value,
-                        duration: Duration(milliseconds: 300),
-                        curve: Curves.easeIn);
-                  } else {
-                    showBar(context, AppStrings.selectPaymentMethod);
-                  }
-                },
                 pageController: pageController,
                 currentPageIndex: currentPageIndex,
+                onTap: (index) {
+                  if (currentPageIndex == 0) {
+                    pageController.animateToPage(
+                      index,
+                      duration: Duration(milliseconds: 300),
+                      curve: Curves.easeIn,
+                    );
+                  } else if (index == 1) {
+                    var orderEntity = context.read<OrderEntity>();
+                    if (orderEntity.payWithCash != null) {
+                      pageController.animateToPage(
+                        index,
+                        duration: Duration(milliseconds: 300),
+                        curve: Curves.easeIn,
+                      );
+                    } else if (orderEntity.payWithCash == null) {
+                      showBar(context, AppStrings.selectPaymentMethod);
+                    } else {
+                      showBar(context, AppStrings.selectPaymentMethod);
+                    }
+                  } else {
+                    _handleAddressValidation();
+                  }
+                },
               ),
             ),
             const SliverToBoxAdapter(child: SizedBox(height: 32)),
@@ -122,10 +137,6 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
                           _handleAddressValidation();
                         } else {
                           _handlePaymentProcess(context);
-                          // var orderEntity = context.read<OrderEntity>();
-                          // context
-                          //     .read<AddOrderCubit>()
-                          //     .addOrder(order: orderEntity);
                         }
                       },
                       text: getNextButtonText(currentPageIndex),
@@ -195,7 +206,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
 
     PaypalPaymentEntity paypalPaymentEntity =
         PaypalPaymentEntity.fromEntity(orderEntity);
-
+    var addPOrderCubit = context.read<AddOrderCubit>();
     log(paypalPaymentEntity.toJson().toString());
 
     Navigator.of(context).push(MaterialPageRoute(
@@ -211,6 +222,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
           log("onSuccess: $params");
           showBar(context, AppStrings.paymentSuccess);
           Navigator.pop(context);
+          addPOrderCubit.addOrder(order: orderEntity);
         },
         onError: (error) {
           log("onError: $error");
