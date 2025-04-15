@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1066620241323",
+    "project_id": "ecommerce-app-5b6d7",
+    "storage_bucket": "ecommerce-app-5b6d7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1066620241323:android:086a2d377f8be065183eee",
+        "android_client_info": {
+          "package_name": "com.example.fruits_hup"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbM198x6nnR71ahGRNu52AF52uhDHkr2U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
