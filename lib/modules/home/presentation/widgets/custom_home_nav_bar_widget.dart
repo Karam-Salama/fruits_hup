@@ -9,7 +9,7 @@ import '../../../category/presentation/views/products_view.dart';
 import '../../../setting/presentation/views/setting_view.dart';
 import '../views/best_celling_view.dart';
 import '../views/notification_view.dart';
-import '../views/search_view.dart';
+import '../../../search/view/search_view.dart';
 import '../views/home_view.dart';
 
 class HomeNavBarWidget extends StatelessWidget {

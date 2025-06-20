@@ -45,4 +45,34 @@ class ProductReposImplementation implements ProductRepo {
       return left(ServerFailure('Failed to get products'));
     }
   }
+
+  @override
+  @override
+  Future<Either<Failure, List<ProductEntity>>> getProductsByName(
+      String name) async {
+    try {
+      var allProducts = await databaseService.getData(
+          path: BackendEndpoints.getProducts) as List<Map<String, dynamic>>;
+
+      // Filter locally if backend doesn't support search
+      final filteredProducts = allProducts
+          .where((product) => product['name']
+              .toString()
+              .toLowerCase()
+              .contains(name.toLowerCase()))
+          .toList();
+
+      if (filteredProducts.isEmpty) {
+        return right([]);
+      }
+
+      List<ProductEntity> products = filteredProducts
+          .map((e) => ProductModel.fromJson(e).toEntity())
+          .toList();
+
+      return right(products);
+    } catch (e) {
+      return left(ServerFailure('Failed to get products by name'));
+    }
+  }
 }

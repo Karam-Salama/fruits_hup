@@ -5,6 +5,7 @@ import 'package:skeletonizer/skeletonizer.dart';
 import '../../../../core/cubits/product_cubit/product_cubit.dart';
 import '../../../../core/functions/get_dummy_product.dart';
 import '../../../../core/widgets/custom_error_widget.dart';
+import '../../../../core/widgets/custom_no_result_widget.dart';
 import 'products_grid_view.dart';
 
 class ProductsGridViewBlocBuilder extends StatelessWidget {
@@ -15,6 +16,11 @@ class ProductsGridViewBlocBuilder extends StatelessWidget {
     return BlocBuilder<ProductCubit, ProductState>(
       builder: (context, state) {
         if (state is ProductSuccess) {
+          if (state.products.isEmpty) {
+            return const SliverToBoxAdapter(
+              child: Center(child: NoResultsFoundView()),
+            );
+          }
           return ProductsGridView(products: state.products);
         } else if (state is ProductFailure) {
           return SliverToBoxAdapter(

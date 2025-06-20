@@ -29,9 +29,14 @@ class _ProductsViewBodyState extends State<ProductsViewBody> {
       slivers: [
         const SliverToBoxAdapter(child: SizedBox(height: 40)),
         SliverToBoxAdapter(
-            child: CustomBestCellingAppBar(title: AppStrings.products, isVisible: false)),
+            child: CustomBestCellingAppBar(
+                title: AppStrings.products, isVisible: false)),
         const SliverToBoxAdapter(child: SizedBox(height: 16)),
-        const SliverToBoxAdapter(child: CustomSearchBarWidget()),
+        SliverToBoxAdapter(child: CustomSearchBarWidget(
+          onChanged: (value) {
+            context.read<ProductCubit>().searchProducts(value);
+          },
+        )),
         const SliverToBoxAdapter(child: SizedBox(height: 16)),
         SliverToBoxAdapter(
             child: ProductsHeader(productsLength: ProductCubit.productsLength)),

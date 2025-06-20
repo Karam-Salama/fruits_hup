@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_hup/core/utils/app_strings.dart';
 import 'package:fruits_hup/core/utils/app_text_styles.dart';
-import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
-
-import '../../modules/home/presentation/views/search_view.dart';
 import '../utils/app_assets.dart';
 import '../utils/app_colors.dart';
 
 class CustomSearchBarWidget extends StatelessWidget {
-  const CustomSearchBarWidget({super.key});
-
+  const CustomSearchBarWidget({super.key, this.onChanged, this.onTap});
+  final void Function(String)? onChanged;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -30,14 +28,8 @@ class CustomSearchBarWidget extends StatelessWidget {
         child: TextField(
           keyboardType: TextInputType.text,
           style: AppTextStyle.Cairo700style18,
-          onSubmitted: (value) {
-            PersistentNavBarNavigator.pushNewScreen(
-              context,
-              screen: SearchView(),
-              withNavBar: true,
-              pageTransitionAnimation: PageTransitionAnimation.cupertino,
-            );
-          },
+          onChanged: onChanged,
+          onTap: onTap,
           decoration: InputDecoration(
             filled: true,
             fillColor: AppColors.whiteColor,

@@ -187,4 +187,9 @@ class Assets {
       "assets/images/imagesLocation.svg";
 
   static const String imagesEdit = "assets/images/imagesEdit.svg";
+
+  /// Assets for assetsNoResultsFoundImage
+  /// assets/images/no_result_found.png
+  static const String assetsNoResultsFoundImage =
+      "assets/images/no_result_found.png";
 }
