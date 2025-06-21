@@ -10,9 +10,10 @@ class CartView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: BlocProvider(
-      create: (context) => CartItemCubit(),
-      child: CartViewBody(),
-    ));
+      body: BlocProvider(
+        create: (context) => CartItemCubit(),
+        child: CartViewBody(),
+      ),
+    );
   }
 }

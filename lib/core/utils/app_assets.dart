@@ -197,4 +197,16 @@ class Assets {
   /// assets/images/bg_product_image.png
   static const String assetsBgProductImage =
       "assets/images/bg_product_image.png";
+
+  /// Assets for assetsImagesOrganic
+  /// assets/images/organic.png
+  static const String assetsImagesOrganic = "assets/images/organic.png";
+
+  /// Assets for assetsImagesCalories
+  /// assets/images/calories.png
+  static const String assetsImagesCalories = "assets/images/calories.png";
+
+  /// Assets for assetsImagesReviews
+  /// assets/images/reviews.png
+  static const String assetsImagesReviews = "assets/images/reviews.png";
 }

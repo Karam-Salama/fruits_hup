@@ -68,6 +68,7 @@ abstract class AppStrings {
   static const String area = 'المنطقه';
   static const String floor = 'رقم الطابق , رقم الشقه ..';
   static const String phone = 'رقم الهاتف';
+  static const String addToCart = 'إضافة إلى السلة';
 
   static const String orderSummary = 'ملخص الطلب';
   static const String subTotal = 'المجموع الفرعي :';
@@ -81,6 +82,15 @@ abstract class AppStrings {
   static const String paymentFailed = 'فشل الدفع';
   static const String paymentCancelled = 'تم إلغاء الدفع';
   static const String paymentSuccess = 'تم الدفع بنجاح';
+
+  static const String currency = 'جنيه';
+  static const String all = 'عام';
+  static const String permission = 'الصلاحيه';
+  static const String percent = "100 %";
+  static const String calories = 'كالورى';
+  static const String reviewsCount = 'المراجعات';
+  static const String organic = 'أورجانيك';
+  static const String grain = 'جرام';
 }
 
 class FirebaseCollectionName {}
