@@ -192,4 +192,9 @@ class Assets {
   /// assets/images/no_result_found.png
   static const String assetsNoResultsFoundImage =
       "assets/images/no_result_found.png";
+
+  /// Assets for assetsBgProductImage
+  /// assets/images/bg_product_image.png
+  static const String assetsBgProductImage =
+      "assets/images/bg_product_image.png";
 }

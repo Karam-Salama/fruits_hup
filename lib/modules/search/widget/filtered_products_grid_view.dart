@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 import '../../../core/entites/product_entity.dart';
 import '../../../core/widgets/custom_fruit_card_item_widget.dart';
+import '../../home/presentation/views/product_details_view.dart';
 
 class FilteredProductsGridView extends StatelessWidget {
   const FilteredProductsGridView({super.key, required this.products});
@@ -19,7 +21,17 @@ class FilteredProductsGridView extends StatelessWidget {
           crossAxisSpacing: 16,
         ),
         itemBuilder: (context, index) {
-          return FruitCardItem(productEntity: products[index]);
+          return FruitCardItem(
+            onTap: () {
+              PersistentNavBarNavigator.pushNewScreen(
+                context,
+                screen: ProductDetailsView(productEntity: products[index]),
+                withNavBar: false,
+                pageTransitionAnimation: PageTransitionAnimation.cupertino,
+              );
+            },
+            productEntity: products[index],
+          );
         },
       ),
     );

@@ -3,19 +3,16 @@ import 'package:flutter/material.dart';
 import '../../../../core/widgets/custom_home_appBar.dart';
 
 class CustomBestCellingAppBar extends StatelessWidget {
-  const CustomBestCellingAppBar({super.key,required this.title, required this.isVisible});
-  final bool isVisible;
+  const CustomBestCellingAppBar({super.key, required this.title});
   final String title;
   @override
   Widget build(BuildContext context) {
     return CustomAppBar(
       title: title,
-      leading: Visibility(
-        visible: isVisible,
-        child: IconButton(
-          onPressed: () => Navigator.pop(context),
-          icon: Icon(Icons.arrow_back_ios_new_rounded),
-        ),
+      isVisibleLeading: false,
+      leading: IconButton(
+        onPressed: () => Navigator.pop(context),
+        icon: Icon(Icons.arrow_back_ios_new_rounded),
       ),
     );
   }

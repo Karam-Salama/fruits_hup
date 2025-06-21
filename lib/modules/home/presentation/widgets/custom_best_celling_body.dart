@@ -29,8 +29,10 @@ class _BestCellingBodyState extends State<BestCellingBody> {
           slivers: [
             const SliverToBoxAdapter(child: SizedBox(height: 40)),
             SliverToBoxAdapter(
-                child: CustomBestCellingAppBar(
-                    title: AppStrings.mostSold, isVisible: true)),
+              child: CustomBestCellingAppBar(
+                title: AppStrings.mostSold,
+              ),
+            ),
             const SliverToBoxAdapter(child: SizedBox(height: 12)),
             BestSellingGridViewBlocBuilder(),
             const SliverToBoxAdapter(child: SizedBox(height: 24)),

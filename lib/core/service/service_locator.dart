@@ -2,10 +2,8 @@ import 'package:fruits_hup/core/service/database_service.dart';
 import 'package:fruits_hup/core/service/service_firebase_auth.dart';
 import 'package:fruits_hup/modules/auth/data/repos/auth_repo_implement.dart';
 import 'package:fruits_hup/modules/auth/domain/repos/auth_repo.dart';
-
 import '../database/cache/cache_helper.dart';
 import 'package:get_it/get_it.dart';
-
 import '../repos/orders_repos/order_repo.dart';
 import '../repos/orders_repos/orders_repos_implementation.dart';
 import '../repos/products_repos/product_repo.dart';

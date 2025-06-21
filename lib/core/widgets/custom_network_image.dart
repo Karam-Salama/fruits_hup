@@ -7,17 +7,15 @@ class CustomNetworkImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: const BorderRadius.only(
-        topLeft: Radius.circular(16),
-        topRight: Radius.circular(16),
-        bottomLeft: Radius.circular(16),
-        bottomRight: Radius.circular(16),
-      ),
-      child: Image.network(
-        imageUrl,
-        fit: BoxFit.fill,
-        width: double.infinity,
+    return Container(
+      width: double.infinity,
+      height: 200,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        image: DecorationImage(
+          image: NetworkImage(imageUrl),
+          fit: BoxFit.fill,
+        ),
       ),
     );
   }

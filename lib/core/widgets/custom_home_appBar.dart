@@ -8,42 +8,55 @@ class CustomAppBar extends StatelessWidget {
   final Widget? leading;
   final String? title;
   final Widget? trailing;
-  bool? isVisibleLeading = true;
-  bool? isVisibleTrailing = true;
+  final bool isVisibleLeading;
+  final bool isVisibleTrailing;
+  final bool isVisibleTitle;
 
-  CustomAppBar({
+  const CustomAppBar({
     Key? key,
     this.leading,
     this.title,
     this.trailing,
-    this.isVisibleLeading,
-    this.isVisibleTrailing,
+    this.isVisibleLeading = true,
+    this.isVisibleTrailing = true,
+    this.isVisibleTitle = true,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       leading: Visibility(
-        visible: isVisibleLeading ?? true,
-        child: leading ??
-            Image.asset(
-              Assets.assetsIconsUserIcon,
-              width: 40,
-              height: 40,
-            ),
+        visible: isVisibleLeading,
+        child: Container(
+          width: 44,
+          height: 44,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: AppColors.whiteColor,
+          ),
+          child: leading ??
+              Image.asset(
+                Assets.assetsIconsUserIcon,
+                width: 40,
+                height: 40,
+              ),
+        ),
       ),
       title: title != null
-          ? Center(
-              child: Text(
-                title!,
-                style: AppTextStyle.Cairo700style16.copyWith(
-                  color: AppColors.blackColor,
+          ? Visibility(
+              visible: isVisibleTitle,
+              child: Center(
+                child: Text(
+                  title!,
+                  style: AppTextStyle.Cairo700style16.copyWith(
+                    color: AppColors.blackColor,
+                  ),
                 ),
               ),
             )
           : null,
       trailing: Visibility(
-        visible: isVisibleTrailing ?? true,
+        visible: isVisibleTrailing,
         child: trailing ??
             Container(
               padding: const EdgeInsets.all(12),
