@@ -9,8 +9,7 @@ import '../../../../core/utils/app_strings.dart';
 import '../../../../core/utils/app_text_styles.dart';
 
 class ProductsHeader extends StatelessWidget {
-  const ProductsHeader({super.key, required this.productsLength});
-  final int productsLength;
+  const ProductsHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +20,7 @@ class ProductsHeader extends StatelessWidget {
         children: [
           Expanded(
             child: Text(
-              '${productsLength} ${AppStrings.results}',
+              AppStrings.ourProducts,
               style: AppTextStyle.Cairo700style16.copyWith(
                 color: AppColors.blackColor,
               ),

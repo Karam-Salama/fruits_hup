@@ -13,35 +13,34 @@ class CartViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
-      CustomScrollView(
-        physics: const BouncingScrollPhysics(),
-        slivers: [
-          const SliverToBoxAdapter(child: SizedBox(height: 30)),
-          SliverToBoxAdapter(child: CustomCartAppBar(title: AppStrings.cart)),
-          const SliverToBoxAdapter(child: SizedBox(height: 16)),
-          const SliverToBoxAdapter(child: CustomCartHeader()),
-          const SliverToBoxAdapter(child: SizedBox(height: 24)),
-          SliverToBoxAdapter(
-            child: context.read<CartCubit>().cartEntity.cartItems.isEmpty
-                ? const SizedBox()
-                : const CustomDivider(),
-          ),
-          CartItemsList(
-              cartItems: context.watch<CartCubit>().cartEntity.cartItems),
-          SliverToBoxAdapter(
-            child: context.read<CartCubit>().cartEntity.cartItems.isEmpty
-                ? const SizedBox()
-                : const CustomDivider(),
-          ),
-        ],
-      ),
-      Positioned(
-        left: 16,
-        right: 16,
-        bottom: MediaQuery.sizeOf(context).height * .07,
-        child: CustomCartButton(),
-      )
-    ]);
+    return CustomScrollView(
+      physics: const BouncingScrollPhysics(),
+      slivers: [
+        const SliverToBoxAdapter(child: SizedBox(height: 30)),
+        SliverToBoxAdapter(child: CustomCartAppBar(title: AppStrings.cart)),
+        const SliverToBoxAdapter(child: SizedBox(height: 16)),
+        const SliverToBoxAdapter(child: CustomCartHeader()),
+        const SliverToBoxAdapter(child: SizedBox(height: 24)),
+        SliverToBoxAdapter(
+          child: context.read<CartCubit>().cartEntity.cartItems.isEmpty
+              ? const SizedBox()
+              : const CustomDivider(),
+        ),
+        CartItemsList(
+            cartItems: context.watch<CartCubit>().cartEntity.cartItems),
+        SliverToBoxAdapter(
+          child: context.read<CartCubit>().cartEntity.cartItems.isEmpty
+              ? const SizedBox()
+              : const CustomDivider(),
+        ),
+        const SliverToBoxAdapter(child: SizedBox(height: 24)),
+        SliverToBoxAdapter(
+          child: context.read<CartCubit>().cartEntity.cartItems.isEmpty
+              ? const SizedBox()
+              : const CustomCartButton(),
+        ),
+        const SliverToBoxAdapter(child: SizedBox(height: 24)),
+      ],
+    );
   }
 }

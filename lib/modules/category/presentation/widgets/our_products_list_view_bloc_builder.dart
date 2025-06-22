@@ -6,10 +6,10 @@ import '../../../../core/cubits/product_cubit/product_cubit.dart';
 import '../../../../core/functions/get_dummy_product.dart';
 import '../../../../core/widgets/custom_error_widget.dart';
 import '../../../../core/widgets/custom_no_result_widget.dart';
-import 'products_grid_view.dart';
+import 'our_products_list_view.dart';
 
-class ProductsGridViewBlocBuilder extends StatelessWidget {
-  const ProductsGridViewBlocBuilder({super.key});
+class OurProductsBlocBuilderListView extends StatelessWidget {
+  const OurProductsBlocBuilderListView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +21,14 @@ class ProductsGridViewBlocBuilder extends StatelessWidget {
               child: Center(child: NoResultsFoundView()),
             );
           }
-          return ProductsGridView(products: state.products);
+          return OurProductsListView(products: state.products);
         } else if (state is ProductFailure) {
           return SliverToBoxAdapter(
               child: CustomErrorWidget(text: state.errorMessage));
         } else {
           return Skeletonizer.sliver(
             enabled: true,
-            child: ProductsGridView(products: getDummyProducts()),
+            child: OurProductsListView(products: getDummyProducts()),
           );
         }
       },

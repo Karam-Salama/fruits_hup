@@ -209,4 +209,9 @@ class Assets {
   /// Assets for assetsImagesReviews
   /// assets/images/reviews.png
   static const String assetsImagesReviews = "assets/images/reviews.png";
+
+  /// Assets for assetsImagesPaymentSuccess
+  /// assets/images/payment_success.png
+  static const String assetsImagesPaymentSuccess =
+      "assets/images/payment_success.png";
 }

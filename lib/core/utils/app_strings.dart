@@ -81,7 +81,7 @@ abstract class AppStrings {
   static const String selectPaymentMethod = 'حدد طريقة الدفع';
   static const String paymentFailed = 'فشل الدفع';
   static const String paymentCancelled = 'تم إلغاء الدفع';
-  static const String paymentSuccess = 'تم الدفع بنجاح';
+  static const String paymentSuccess = '!تم الدفع بنجاح';
 
   static const String currency = 'جنيه';
   static const String all = 'عام';
@@ -91,6 +91,8 @@ abstract class AppStrings {
   static const String reviewsCount = 'المراجعات';
   static const String organic = 'أورجانيك';
   static const String grain = 'جرام';
+  static const String ourProducts = 'منتجاتنا';
+  static const String goToHome = 'الذهاب إلى الرئيسية';
 }
 
 class FirebaseCollectionName {}

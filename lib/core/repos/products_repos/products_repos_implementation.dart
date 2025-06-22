@@ -47,7 +47,6 @@ class ProductReposImplementation implements ProductRepo {
   }
 
   @override
-  @override
   Future<Either<Failure, List<ProductEntity>>> getProductsByName(
       String name) async {
     try {
