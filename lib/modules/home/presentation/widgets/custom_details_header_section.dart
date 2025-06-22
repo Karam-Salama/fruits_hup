@@ -23,7 +23,7 @@ class DetailsHeaderSection extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 60,
+            top: 40,
             right: 0,
             left: 0,
             child: CustomAppBar(

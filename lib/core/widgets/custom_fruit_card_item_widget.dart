@@ -10,8 +10,11 @@ import '../utils/app_text_styles.dart';
 import 'custom_network_image.dart';
 
 class FruitCardItem extends StatelessWidget {
-  const FruitCardItem(
-      {super.key, required this.productEntity, required this.onTap});
+  const FruitCardItem({
+    super.key,
+    required this.productEntity,
+    required this.onTap,
+  });
 
   final ProductEntity productEntity;
   final VoidCallback? onTap;
@@ -39,8 +42,12 @@ class FruitCardItem extends StatelessWidget {
                 children: [
                   productEntity.imageUrl != null
                       ? Flexible(
-                          child: CustomNetworkImage(
-                              imageUrl: productEntity.imageUrl!),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: CustomNetworkImage(
+                              imageUrl: productEntity.imageUrl!,
+                            ),
+                          ),
                         )
                       : Container(
                           color: Colors.grey,
