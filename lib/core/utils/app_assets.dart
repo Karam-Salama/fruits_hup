@@ -214,4 +214,47 @@ class Assets {
   /// assets/images/payment_success.png
   static const String assetsImagesPaymentSuccess =
       "assets/images/payment_success.png";
+
+  /// Assets for assetsImagesMyOrders
+  /// assets/images/my_orders.svg
+  static const String assetsImagesMyOrders = "assets/images/my_orders.svg";
+
+  /// Assets for assetsImagesMyFavorites
+  /// assets/images/my_favorites.svg
+  static const String assetsImagesMyFavorites =
+      "assets/images/my_favorites.svg";
+
+  /// Assets for assetsImagesMyProfile
+  /// assets/images/my_personal_account.svg
+  static const String assetsImagesMyPersonalAccount =
+      "assets/images/my_personal_account.svg";
+
+  /// Assets for assetsImagesMyLanguage
+  /// assets/images/my_Language.svg
+  static const String assetsImagesMyLanguage = "assets/images/my_language.svg";
+
+  /// Assets for assetsImagesMyNotifications
+  /// assets/images/my_notification.svg
+  static const String assetsImagesMyNotifications =
+      "assets/images/my_notification.svg";
+
+  /// Assets for assetsImagesMyWallet
+  /// assets/images/my-wallet.svg
+  static const String assetsImagesMyWallet = "assets/images/my-wallet.svg";
+
+  /// Assets for assetsImagesMyTheme
+  /// assets/images/my_theme.svg
+  static const String assetsImagesMyTheme = "assets/images/my_theme.svg";
+
+  /// Assets for assetsImagesRightArrow
+  /// assets/images/arrow-right.svg
+  static const String assetsImagesRightArrow = "assets/images/arrow-right.svg";
+
+  /// Assets for assetsImagesLogout
+  /// assets/images/logout.svg
+  static const String assetsImagesLogout = "assets/images/logout.svg";
+
+  /// Assets for assetsImagesHelp
+  /// assets/images/info-circle.png
+  static const String assetsImagesHelp = "assets/images/info-circle.png";
 }

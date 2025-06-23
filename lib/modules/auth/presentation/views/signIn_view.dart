@@ -10,7 +10,7 @@ import 'bodies/sign_in_body.dart';
 class SignInView extends StatelessWidget {
   const SignInView({super.key});
 
-  static const routeName = '/login-view';
+  static const String routeName = '/login-view';
 
   @override
   Widget build(BuildContext context) {

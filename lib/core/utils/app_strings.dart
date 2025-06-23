@@ -93,6 +93,19 @@ abstract class AppStrings {
   static const String grain = 'جرام';
   static const String ourProducts = 'منتجاتنا';
   static const String goToHome = 'الذهاب إلى الرئيسية';
+
+  // Profile
+  static const String myAccount = 'حسابي';
+  static const String personalAccount = "الملف الشخصي";
+  static const String myOrders = "طلباتي";
+  static const String myWallet = "المدفوعات";
+  static const String favorites = "المفضله";
+  static const String myNotifications = "الاشعارات";
+  static const String language = "اللغة";
+  static const String theme = "الوضع";
+  static const String help = "المساعده";
+  static const String aboutUs = "من نحن";
+  static const String logout = "تسجيل الخروج";
 }
 
 class FirebaseCollectionName {}

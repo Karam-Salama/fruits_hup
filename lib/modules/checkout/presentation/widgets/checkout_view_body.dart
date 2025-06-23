@@ -1,7 +1,4 @@
-// ignore_for_file: unused_element
-
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
@@ -10,8 +7,6 @@ import 'package:fruits_hup/core/utils/app_colors.dart';
 import 'package:fruits_hup/core/utils/app_keys.dart';
 import 'package:fruits_hup/modules/checkout/domain/entities/payment_entity.dart';
 import 'package:fruits_hup/modules/checkout/presentation/manager/cubit/add_order_cubit/add_order_cubit.dart';
-import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
-
 import '../../../../core/utils/app_strings.dart';
 import '../../../../core/utils/app_text_styles.dart';
 import '../../../../core/widgets/custom_btn.dart';
