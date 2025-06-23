@@ -257,4 +257,18 @@ class Assets {
   /// Assets for assetsImagesHelp
   /// assets/images/info-circle.png
   static const String assetsImagesHelp = "assets/images/info-circle.png";
+
+  /// Assets for assetsImagesProfileImage
+  /// assets/images/profile_img.png
+  static const String assetsImagesProfileImage =
+      "assets/images/profile_img.png";
+
+  /// Assets for assetsImagesCheckForSkill
+  /// assets/images/check_for_skill.svg
+  static const String assetsImagesCheckForSkill =
+      "assets/images/check_for_skill.svg";
+
+  /// Assets for assetsIconslinkedinImage
+  /// assets/icons/linkedin.png
+  static const String assetsIconslinkedinImage = "assets/icons/linkedin.png";
 }

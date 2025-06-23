@@ -32,7 +32,7 @@ class SettingFooterSection extends StatelessWidget {
               pageTransitionAnimation: PageTransitionAnimation.cupertino,
             );
           },
-          data: AppStrings.aboutUs,
+          data: AppStrings.aboutDeveloper,
           leading: Image.asset(
             Assets.assetsImagesHelp,
             height: 20,

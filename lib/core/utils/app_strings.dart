@@ -104,7 +104,8 @@ abstract class AppStrings {
   static const String language = "اللغة";
   static const String theme = "الوضع";
   static const String help = "المساعده";
-  static const String aboutUs = "من نحن";
+  static const String aboutDeveloper = "حول المطور";
+  static const String contactUs = "اتصل بنا";
   static const String logout = "تسجيل الخروج";
 }
 

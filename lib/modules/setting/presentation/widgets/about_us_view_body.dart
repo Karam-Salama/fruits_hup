@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../../../../core/utils/app_strings.dart';
 import '../../../../core/widgets/custom_home_appBar.dart';
 
+import 'about_us_main_section.dart';
+
 class AboutUsViewBody extends StatelessWidget {
   const AboutUsViewBody({super.key});
 
@@ -15,12 +17,12 @@ class AboutUsViewBody extends StatelessWidget {
           slivers: [
             SliverToBoxAdapter(
               child: CustomAppBar(
-                title: AppStrings.aboutUs,
+                title: AppStrings.aboutDeveloper,
                 isVisibleTrailing: false,
                 isVisibleLeading: false,
               ),
             ),
-            const SliverToBoxAdapter(child: SizedBox(height: 16)),
+            SliverToBoxAdapter(child: AboutMeMainSection()),
           ],
         ),
       ),

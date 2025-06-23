@@ -11,7 +11,7 @@ import 'core/service/service_locator.dart';
 void main() async {
   Bloc.observer = CustomBlocObserver();
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform); 
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   setUpServiceLocator();
   await getIt<CacheHelper>().init();
   checkStateChanges();
