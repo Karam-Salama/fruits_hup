@@ -15,7 +15,7 @@ class DetailsEntity {
     return data;
   }
 
-  factory DetailsEntity.fromEntity(OrderEntity order) {
+  factory DetailsEntity.fromEntity(OrderInputEntity order) {
     return DetailsEntity(
       subtotal: order.cartEntity.calculateTotalPrice().toString(),
       shipping: order.calculateShippingCost().toString(),

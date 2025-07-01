@@ -16,7 +16,7 @@ class _ShippingSectionState extends State<ShippingSection>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    var orderEntity = context.read<OrderEntity>();
+    var orderEntity = context.read<OrderInputEntity>();
 
     return Column(
       children: [
@@ -30,7 +30,7 @@ class _ShippingSectionState extends State<ShippingSection>
           isSelected: selectedIndex == 0,
           title: 'الدفع عند الاستلام',
           subTitle: 'التسليم من المكان',
-          price: (orderEntity.cartEntity.calculateTotalPrice() + 30 ).toString(),
+          price: (orderEntity.cartEntity.calculateTotalPrice() + 30).toString(),
         ),
         const SizedBox(
           height: 16,

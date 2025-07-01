@@ -15,7 +15,8 @@ class OrdersReposImplementation implements OrderRepo {
   OrdersReposImplementation({required this.firestoreService});
 
   @override
-  Future<Either<Failure, void>> addOrders({required OrderEntity order}) async {
+  Future<Either<Failure, void>> addOrders(
+      {required OrderInputEntity order}) async {
     try {
       await firestoreService.addData(
         path: BackendEndpoints.addOrders,

@@ -9,7 +9,7 @@ class AmountEntity {
 
   AmountEntity({this.total, this.currency, this.details});
 
-  factory AmountEntity.fromEntity(OrderEntity order) {
+  factory AmountEntity.fromEntity(OrderInputEntity order) {
     return AmountEntity(
       total: order.calculateTotalPriceAfterDiscountAndShipping().toString(),
       currency: getCurrency(),

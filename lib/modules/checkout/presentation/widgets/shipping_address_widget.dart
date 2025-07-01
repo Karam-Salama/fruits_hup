@@ -16,7 +16,7 @@ class ShippingAddressWidget extends StatelessWidget {
   final PageController pageController;
   @override
   Widget build(BuildContext context) {
-    var orderEntity = context.read<OrderEntity>();
+    var orderEntity = context.read<OrderInputEntity>();
     return PaymentItem(
       tile: AppStrings.orderingAddress,
       child: Row(

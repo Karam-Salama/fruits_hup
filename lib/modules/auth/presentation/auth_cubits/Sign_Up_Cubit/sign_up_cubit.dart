@@ -36,8 +36,4 @@ class SignUpCubit extends Cubit<SignUpState> {
       (userEntity) => emit(SignUpSuccessState(userEntity: userEntity)),
     );
   }
-
-
-
-
 }

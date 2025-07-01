@@ -32,8 +32,10 @@ class AddressInputSection extends StatelessWidget {
                 const SizedBox(height: 24),
                 CustomTextFormField(
                   onSaved: (value) {
-                    context.read<OrderEntity>().shippingAddressEntity.name =
-                        value!;
+                    context
+                        .read<OrderInputEntity>()
+                        .shippingAddressEntity
+                        .name = value!;
                   },
                   hintText: AppStrings.fullName,
                   keyboardType: TextInputType.text,
@@ -42,8 +44,10 @@ class AddressInputSection extends StatelessWidget {
                 const SizedBox(height: 16),
                 CustomTextFormField(
                   onSaved: (value) {
-                    context.read<OrderEntity>().shippingAddressEntity.email =
-                        value!;
+                    context
+                        .read<OrderInputEntity>()
+                        .shippingAddressEntity
+                        .email = value!;
                   },
                   hintText: AppStrings.Email,
                   keyboardType: TextInputType.emailAddress,
@@ -52,8 +56,10 @@ class AddressInputSection extends StatelessWidget {
                 const SizedBox(height: 16),
                 CustomTextFormField(
                   onSaved: (value) {
-                    context.read<OrderEntity>().shippingAddressEntity.address =
-                        value!;
+                    context
+                        .read<OrderInputEntity>()
+                        .shippingAddressEntity
+                        .address = value!;
                   },
                   hintText: AppStrings.address,
                   keyboardType: TextInputType.text,
@@ -62,8 +68,10 @@ class AddressInputSection extends StatelessWidget {
                 const SizedBox(height: 16),
                 CustomTextFormField(
                   onSaved: (value) {
-                    context.read<OrderEntity>().shippingAddressEntity.city =
-                        value!;
+                    context
+                        .read<OrderInputEntity>()
+                        .shippingAddressEntity
+                        .city = value!;
                   },
                   hintText: AppStrings.city,
                   keyboardType: TextInputType.text,
@@ -72,8 +80,10 @@ class AddressInputSection extends StatelessWidget {
                 const SizedBox(height: 16),
                 CustomTextFormField(
                   onSaved: (value) {
-                    context.read<OrderEntity>().shippingAddressEntity.floor =
-                        value!;
+                    context
+                        .read<OrderInputEntity>()
+                        .shippingAddressEntity
+                        .floor = value!;
                   },
                   hintText: AppStrings.floor,
                   keyboardType: TextInputType.text,
@@ -82,8 +92,10 @@ class AddressInputSection extends StatelessWidget {
                 const SizedBox(height: 16),
                 CustomTextFormField(
                   onSaved: (value) {
-                    context.read<OrderEntity>().shippingAddressEntity.phone =
-                        value!;
+                    context
+                        .read<OrderInputEntity>()
+                        .shippingAddressEntity
+                        .phone = value!;
                   },
                   hintText: AppStrings.phone,
                   keyboardType: TextInputType.number,
