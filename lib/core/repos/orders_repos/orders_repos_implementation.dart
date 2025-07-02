@@ -15,12 +15,15 @@ class OrdersReposImplementation implements OrderRepo {
   OrdersReposImplementation({required this.firestoreService});
 
   @override
-  Future<Either<Failure, void>> addOrders(
-      {required OrderInputEntity order}) async {
+  Future<Either<Failure, void>> addOrders({
+    required OrderInputEntity order,
+  }) async {
     try {
+      var orderModel = OrderModel.fromEntity(order);
       await firestoreService.addData(
         path: BackendEndpoints.addOrders,
-        data: OrderModel.fromEntity(order).toJson(),
+        documentId: orderModel.orderId,
+        data: orderModel.toJson(),
       );
       return const Right(null);
     } catch (e) {

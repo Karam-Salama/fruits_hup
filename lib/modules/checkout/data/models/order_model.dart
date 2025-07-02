@@ -38,6 +38,7 @@ class OrderModel {
 
   toJson() {
     return {
+      'orderId': orderId,
       'totalPrice': totalPrice,
       'uId': uId,
       'status': 'pending',
